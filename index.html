@@ -352,6 +352,50 @@
     }
     .article-view .tip strong { color: var(--accent2); }
 
+    .article-img {
+      width: 100%; border-radius: 14px; overflow: hidden; margin: 24px 0;
+      background: var(--grad); display: flex; align-items: center;
+      justify-content: center; position: relative;
+    }
+    .article-img.tall { height: 280px; }
+    .article-img.short { height: 180px; }
+    .article-img .img-icon { font-size: 3.5rem; opacity: .6; }
+    .article-img .img-caption {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(0,0,0,0.5); color: #fff; padding: 10px 16px;
+      font-size: .85rem; text-align: center;
+    }
+    .article-view blockquote {
+      border-left: 3px solid var(--accent); margin: 20px 0;
+      padding: 14px 20px; background: rgba(255,140,0,0.04);
+      border-radius: 0 10px 10px 0; font-style: italic; color: var(--muted);
+    }
+    .article-view .steps {
+      counter-reset: step; list-style: none; padding: 0; margin: 20px 0;
+    }
+    .article-view .steps li {
+      counter-increment: step; position: relative; padding-left: 48px;
+      margin-bottom: 20px; min-height: 36px;
+    }
+    .article-view .steps li::before {
+      content: counter(step); position: absolute; left: 0; top: 0;
+      width: 36px; height: 36px; border-radius: 50%; background: var(--grad);
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: .9rem;
+    }
+    .article-view .key-point {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 16px; background: var(--card); border: 1px solid rgba(0,0,0,0.06);
+      border-radius: 12px; margin: 16px 0;
+    }
+    .article-view .key-point .kp-icon {
+      width: 40px; height: 40px; border-radius: 10px; background: rgba(255,140,0,0.1);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; flex-shrink: 0;
+    }
+    .article-view .key-point .kp-text h4 { font-size: .95rem; margin-bottom: 4px; }
+    .article-view .key-point .kp-text p { margin: 0; font-size: .9rem; color: var(--muted); }
+
     .guides-welcome {
       display: flex; flex-direction: column; align-items: center;
       justify-content: center; text-align: center; min-height: 400px;
@@ -838,7 +882,27 @@
         ga_roi_tip1: "\u0421\u043e\u0432\u0435\u0442: \u0421\u0447\u0438\u0442\u0430\u0439\u0442\u0435 \u043d\u0435 \u0442\u043e\u043b\u044c\u043a\u043e \u0434\u0435\u043d\u044c\u0433\u0438, \u043d\u043e \u0438 \u0432\u0440\u0435\u043c\u044f. \u0415\u0441\u043b\u0438 \u0432\u044b \u0442\u0440\u0430\u0442\u0438\u0442\u0435 20 \u0447\u0430\u0441\u043e\u0432 \u043d\u0430 \u0438\u043d\u0442\u0435\u0433\u0440\u0430\u0446\u0438\u044e \u0438 \u043f\u043e\u043b\u0443\u0447\u0430\u0435\u0442\u0435 10 \u0437\u0430\u044f\u0432\u043e\u043a \u2014 \u044d\u0442\u043e \u043e\u043a\u0443\u043f\u0430\u0435\u043c\u043e.",
         ga_roi_h2: "Что считать",
         ga_roi_p3: "Включайте все затраты:",
-        ga_roi_list2: ["Подписки на инструменты (Apollo, Hunter)", "Стоимость базы данных", "Время менеджера (ставка в час x часы)", "Стоимость прогрева и настройки"]
+        ga_roi_list2: ["Подписки на инструменты (Apollo, Hunter)", "Стоимость базы данных", "Время менеджера (ставка в час x часы)", "Стоимость прогрева и настройки"],
+        ga_start_img1: "Запуск холодной рассылки", ga_start_img2: "Структура письма", ga_start_h4: "Какие инструменты нужны", ga_start_p5: "Для запуска холодной рассылки вам понадобятся: email-рассылочный сервис (например, Lemlist или Instantly), инструмент для поиска контактов (Apollo, Hunter), CRM для ведения сделок и домены для рассылок.", ga_start_kp1_t: "Главное", ga_start_kp1: "Начните с малого: 2\u20133 домена, 5\u201310 писем в день. Масштабируйте после первых результатов.", ga_start_quote1: "Холодная рассылка \u2014 это не спам. Это персонализированное предложение для конкретного человека с конкретным бизнесом.",
+        ga_mistakes_img1: "Типичные ошибки", ga_mistakes_img2: "Статистика откликов", ga_mistakes_h3: "Ошибка 3: Длинные письма", ga_mistakes_p4: "Письма длиннее 150 слов читаются только 30% получателей. Идеальная длина \u2014 50\u2013120 слов. Каждое слово должно работать на результат.", ga_mistakes_kp1_t: "Золотое правило", ga_mistakes_kp1: "Напишите письмо, прочитайте вслух. Если оно занимает больше 30 секунд \u2014 сокращайте.", ga_mistakes_quote1: "Лучшее короткое письмо \u2014 это то, которое читатель может ответить, не отрываясь от основных дел.",
+        ga_legal_img1: "Юридические нормы", ga_legal_img2: "Документация", ga_legal_h3: "Практические рекомендации", ga_legal_p4: "Всегда включайте в письмо: фактический адрес компании, ссылку для отписки, объяснение, почему вы пишете. Ведите реестр обработки персональных данных.", ga_legal_kp1_t: "Важно", ga_legal_kp1: "Перед запуском рассылки по ЕС или США проконсультируйтесь с юристом по вопросам соответствия GDPR и CAN-SPAM.",
+        ga_timing_img1: "Оптимальное время отправки", ga_timing_img2: "График активности", ga_timing_kp1_t: "Лучшая стратегия", ga_timing_kp1: "Тестируйте разное время на разных сегментах. Одна компания может отвечать лучше утром, другая \u2014 после обеда.", ga_timing_quote1: "Время отправки может увеличить open rate на 20\u201330%. Не упускайте этот бесплатный рычаг.",
+        ga_followup_img1: "Цепочка follow-up", ga_followup_img2: "Примеры писем", ga_followup_kp1_t: "Ключевой принцип", ga_followup_kp1: "Каждый follow-up должен быть ценным сам по себе. Если убрать контекст \u2014 письмо всё равно должно быть полезным.", ga_followup_quote1: "80% сделок закрываются после 5\u20138 касаний. Большинство продавцов сдаются после 2.",
+        ga_effective_img1: "Эффективные письма", ga_effective_img2: "Структура ответа", ga_effective_kp1_t: "Формула успеха", ga_effective_kp1: "Персонализация + конкретика + один CTA + короткий текст = письмо, на которое отвечают.", ga_effective_quote1: "Не пишите о себе. Пишите о проблеме получателя и как вы её решаете.",
+        ga_structures_img1: "Структуры писем", ga_structures_img2: "Пример AIDA", ga_structures_kp1_t: "Совет", ga_structures_kp1: "Используйте разные структуры для разных сегментов. Тестируйте, какая работает лучше в вашей нише.",
+        ga_subjects_img1: "Темы писем", ga_subjects_img2: "A/B тест тем", ga_subjects_kp1_t: "Главное", ga_subjects_kp1: "Тема письма \u2014 это 80% успеха. Тестируйте минимум 3 варианта на каждой кампании.", ga_subjects_quote1: "Отличная тема \u2014 это та, которая заставляет открыть письмо. Всё остальное \u2014 уже внутри.",
+        ga_personalization_img1: "Уровни персонализации", ga_personalization_img2: "Примеры персонализации", ga_personalization_kp1_t: "Лайфхак", ga_personalization_kp1: "Потратьте 2 минуты на изучение профиля руководителя в LinkedIn перед отправкой. Это повышает отклик на 40%.", ga_personalization_quote1: "Персонализация \u2014 это не масштабируемость. Это качество. 10 персонализированных писем лучше 100 шаблонных.",
+        ga_tone_img1: "Тон и стиль", ga_tone_img2: "Примеры писем", ga_tone_kp1_t: "Итог", ga_tone_kp1: "Пишите так, как говорите. Естественный тон вызывает доверие. Формальный \u2014 отторжение.", ga_tone_quote1: "Если ваше письмо звучит как рассылка \u2014 его отправят в спам. Если как сообщение от человека \u2014 ответят.",
+        ga_collect_img1: "Сбор базы данных", ga_collect_img2: "Инструменты поиска", ga_collect_kp1_t: "Рекомендация", ga_collect_kp1: "Собирайте базу самостоятельно или используйте наш сервис. Готовые базы редко бывают качественными.", ga_collect_quote1: "Качественная база \u2014 это 70% успеха холодной рассылки. Не экономьте на этом.",
+        ga_verify_img1: "Верификация email", ga_verify_img2: "Проверка адресов", ga_verify_kp1_t: "Правило", ga_verify_kp1: "Верифицируйте каждый адрес перед отправкой. Bounce rate выше 3% портит репутацию домена.",
+        ga_segment_img1: "Сегментация базы", ga_segment_img2: "Пример сегментов", ga_segment_kp1_t: "Совет", ga_segment_kp1: "Начните с 3\u20135 сегментов. Более 10 \u2014 сложно управлять, менее 3 \u2014 слишком обобщённо.", ga_segment_quote1: "Сегментация \u2014 это персонализация в масштабе. Один сегмент = одно сообщение = один отклик.",
+        ga_sources_img1: "Источники данных", ga_sources_img2: "Инструменты поиска", ga_sources_kp1_t: "Главное", ga_sources_kp1: "Не покупайте готовые базы. Собирайте сами \u2014 это дороже, но качество в 10 раз выше.",
+        ga_enrichment_img1: "Обогащение данных", ga_enrichment_img2: "Примеры обогащения", ga_enrichment_kp1_t: "Итог", ga_enrichment_kp1: "Обогащение данных увеличивает конверсию в встречу на 25\u201340%. Это инвестиция, а не затрата.", ga_enrichment_quote1: "Email без должности \u2014 это слепая письмо. Вы не знаете, кому пишете.",
+        ga_metrics_img1: "Ключевые метрики", ga_metrics_img2: "Дашборд аналитики", ga_metrics_kp1_t: "Важно", ga_metrics_kp1: "Отслеживайте все метрики в едином дашборде. Это даст полную картину эффективности.", ga_metrics_quote1: "Что измеряется \u2014 то улучшается. Без метрик вы летите вслепую.",
+        ga_openrate_img1: "Open Rate", ga_openrate_img2: "График открытий", ga_openrate_kp1_t: "Цель", ga_openrate_kp1: "Open rate выше 30% \u2014 это достижимо. Начните с темы и времени отправки.", ga_openrate_quote1: "Отличная тема + правильное время = 40%+ open rate. Это реальность, а не теория.",
+        ga_abtest_img1: "A/B тестирование", ga_abtest_img2: "Результаты тестов", ga_abtest_kp1_t: "Правило", ga_abtest_kp1: "Тестируйте по 100 писем на вариант. Меньше \u2014 статистически ненадёжно.", ga_abtest_quote1: "A/B тестирование \u2014 это наука о том, что работает. Не угадывайте \u2014 проверяйте.",
+        ga_deliverability_img1: "Доставляемость", ga_deliverability_img2: "Настройка DNS", ga_deliverability_kp1_t: "Ключевой фактор", ga_deliverability_kp1: "Доставляемость ниже 90% \u2014 это техническая проблема. Проверьте SPF, DKIM и DMARC.", ga_deliverability_quote1: "Ваше письмо может быть идеальным, но если оно лежит в спаме \u2014 его никто не увидит.",
+        ga_roi_img1: "Расчёт ROI", ga_roi_img2: "Формула окупаемости", ga_roi_kp1_t: "Итог", ga_roi_kp1: "ROI холодных рассылок обычно 300\u2013500%. Если ниже \u2014 пересмотрите стратегию.", ga_roi_quote1: "ROI \u2014 это не прибыль. Это понимание, сколько вы зарабатываете на каждый вложенный рубль."
       },
       en: {
         nav_features: "Features", nav_materials: "Materials", nav_turnkey: "Turnkey", nav_tariffs: "Pricing",
@@ -1063,7 +1127,27 @@
         ga_roi_tip1: "Tip: Count not just money but time. If you spend 20 hours on outreach and get 10 leads \u2014 that's profitable.",
         ga_roi_h2: "What to Count",
         ga_roi_p3: "Include all costs:",
-        ga_roi_list2: ["Tool subscriptions (Apollo, Hunter)", "Database cost", "Manager's time (hourly rate x hours)", "Warmup and setup costs"]
+        ga_roi_list2: ["Tool subscriptions (Apollo, Hunter)", "Database cost", "Manager's time (hourly rate x hours)", "Warmup and setup costs"],
+        ga_start_img1: "Cold Outreach Launch", ga_start_img2: "Email Structure", ga_start_h4: "Tools You Need", ga_start_p5: "For cold outreach you'll need: an email platform (Lemlist or Instantly), a contact finder (Apollo, Hunter), a CRM for deal tracking, and domains for outreach.", ga_start_kp1_t: "Key Point", ga_start_kp1: "Start small: 2\u20133 domains, 5\u201310 emails per day. Scale after first results.", ga_start_quote1: "Cold outreach isn't spam. It's a personalized offer for a specific person with a specific business.",
+        ga_mistakes_img1: "Common Mistakes", ga_mistakes_img2: "Response Statistics", ga_mistakes_h3: "Mistake 3: Long Emails", ga_mistakes_p4: "Emails longer than 150 words are read by only 30% of recipients. Ideal length is 50\u2013120 words. Every word should work towards the goal.", ga_mistakes_kp1_t: "Golden Rule", ga_mistakes_kp1: "Write the email, read it aloud. If it takes more than 30 seconds \u2014 cut it.", ga_mistakes_quote1: "The best short email is one the reader can reply to without interrupting their work.",
+        ga_legal_img1: "Legal Standards", ga_legal_img2: "Documentation", ga_legal_h3: "Practical Recommendations", ga_legal_p4: "Always include in your email: company's physical address, unsubscribe link, explanation of why you're writing. Keep a register of personal data processing.", ga_legal_kp1_t: "Important", ga_legal_kp1: "Before launching outreach to EU or US contacts, consult a lawyer about GDPR and CAN-SPAM compliance.",
+        ga_timing_img1: "Optimal Send Time", ga_timing_img2: "Activity Graph", ga_timing_kp1_t: "Best Strategy", ga_timing_kp1: "Test different times on different segments. One company may respond better in the morning, another after lunch.", ga_timing_quote1: "Send time can increase open rate by 20\u201330%. Don't miss this free lever.",
+        ga_followup_img1: "Follow-up Sequence", ga_followup_img2: "Email Examples", ga_followup_kp1_t: "Key Principle", ga_followup_kp1: "Each follow-up should be valuable on its own. Remove the context \u2014 the email should still be useful.", ga_followup_quote1: "80% of deals close after 5\u20138 touches. Most salespeople give up after 2.",
+        ga_effective_img1: "Effective Emails", ga_effective_img2: "Response Structure", ga_effective_kp1_t: "Success Formula", ga_effective_kp1: "Personalization + specifics + one CTA + short text = email that gets replies.", ga_effective_quote1: "Don't write about yourself. Write about the recipient's problem and how you solve it.",
+        ga_structures_img1: "Email Structures", ga_structures_img2: "AIDA Example", ga_structures_kp1_t: "Tip", ga_structures_kp1: "Use different structures for different segments. Test which works best in your niche.",
+        ga_subjects_img1: "Email Subjects", ga_subjects_img2: "A/B Subject Test", ga_subjects_kp1_t: "Key Point", ga_subjects_kp1: "Subject line is 80% of success. Test at least 3 variants per campaign.", ga_subjects_quote1: "A great subject is one that makes you open the email. Everything else is inside.",
+        ga_personalization_img1: "Personalization Levels", ga_personalization_img2: "Personalization Examples", ga_personalization_kp1_t: "Lifehack", ga_personalization_kp1: "Spend 2 minutes reviewing the executive's LinkedIn profile before sending. This boosts response by 40%.", ga_personalization_quote1: "Personalization isn't scalability. It's quality. 10 personalized emails beat 100 templates.",
+        ga_tone_img1: "Tone and Style", ga_tone_img2: "Email Examples", ga_tone_kp1_t: "Summary", ga_tone_kp1: "Write as you speak. Natural tone builds trust. Formal \u2014 creates rejection.", ga_tone_quote1: "If your email sounds like a blast \u2014 it goes to spam. If it sounds like a human message \u2014 they reply.",
+        ga_collect_img1: "Database Building", ga_collect_img2: "Search Tools", ga_collect_kp1_t: "Recommendation", ga_collect_kp1: "Build the database yourself or use our service. Ready-made lists are rarely high quality.", ga_collect_quote1: "Quality database is 70% of cold outreach success. Don't cut corners here.",
+        ga_verify_img1: "Email Verification", ga_verify_img2: "Address Checking", ga_verify_kp1_t: "Rule", ga_verify_kp1: "Verify every address before sending. Bounce rate above 3% damages domain reputation.",
+        ga_segment_img1: "Database Segmentation", ga_segment_img2: "Segment Examples", ga_segment_kp1_t: "Tip", ga_segment_kp1: "Start with 3\u20135 segments. More than 10 is hard to manage, less than 3 is too generic.", ga_segment_quote1: "Segmentation is personalization at scale. One segment = one message = one response.",
+        ga_sources_img1: "Data Sources", ga_sources_img2: "Search Tools", ga_sources_kp1_t: "Key Point", ga_sources_kp1: "Don't buy ready-made lists. Build your own \u2014 it's more expensive but 10x better quality.",
+        ga_enrichment_img1: "Data Enrichment", ga_enrichment_img2: "Enrichment Examples", ga_enrichment_kp1_t: "Summary", ga_enrichment_kp1: "Data enrichment increases meeting conversion by 25\u201340%. It's an investment, not a cost.", ga_enrichment_quote1: "An email without a job title is a blind shot. You don't know who you're writing to.",
+        ga_metrics_img1: "Key Metrics", ga_metrics_img2: "Analytics Dashboard", ga_metrics_kp1_t: "Important", ga_metrics_kp1: "Track all metrics in a unified dashboard. This gives you the full picture of performance.", ga_metrics_quote1: "What gets measured gets improved. Without metrics, you're flying blind.",
+        ga_openrate_img1: "Open Rate", ga_openrate_img2: "Open Graph", ga_openrate_kp1_t: "Goal", ga_openrate_kp1: "Open rate above 30% \u2014 it's achievable. Start with subject and send time.", ga_openrate_quote1: "Great subject + right time = 40%+ open rate. This is reality, not theory.",
+        ga_abtest_img1: "A/B Testing", ga_abtest_img2: "Test Results", ga_abtest_kp1_t: "Rule", ga_abtest_kp1: "Test 100 emails per variant. Less \u2014 statistically unreliable.", ga_abtest_quote1: "A/B testing is the science of what works. Don't guess \u2014 verify.",
+        ga_deliverability_img1: "Deliverability", ga_deliverability_img2: "DNS Setup", ga_deliverability_kp1_t: "Key Factor", ga_deliverability_kp1: "Deliverability below 90% \u2014 it's a technical issue. Check SPF, DKIM, and DMARC.", ga_deliverability_quote1: "Your email can be perfect, but if it's in spam \u2014 nobody will see it.",
+        ga_roi_img1: "ROI Calculation", ga_roi_img2: "Payback Formula", ga_roi_kp1_t: "Summary", ga_roi_kp1: "Cold outreach ROI is usually 300\u2013500%. If lower \u2014 rethink your strategy.", ga_roi_quote1: "ROI isn't profit. It's understanding how much you earn for every ruble invested."
       }
     };
 
@@ -1278,8 +1362,9 @@
       content: {
         start: {
           titleKey: 'ga_start', titleFallback: 'С чего начать холодную рассылку',
-          readTime: '10 min',
+          readTime: '12 min',
           sections: [
+            { type: 'img', icon: '&#128640;', height: 'tall', caption: 'ga_start_img1' },
             { type: 'p', key: 'ga_start_p1' },
             { type: 'h3', key: 'ga_start_h1' },
             { type: 'p', key: 'ga_start_p2' },
@@ -1290,13 +1375,20 @@
             { type: 'ul', key: 'ga_start_list2' },
             { type: 'h3', key: 'ga_start_h3' },
             { type: 'p', key: 'ga_start_p4' },
-            { type: 'tip', key: 'ga_start_tip2' }
+            { type: 'tip', key: 'ga_start_tip2' },
+            { type: 'img', icon: '&#128231;', height: 'short', caption: 'ga_start_img2' },
+            { type: 'h3', key: 'ga_start_h4' },
+            { type: 'p', key: 'ga_start_p5' },
+            { type: 'keypoint', icon: '&#9889;', title: 'ga_start_kp1_t', key: 'ga_start_kp1' },
+            { type: 'blockquote', key: 'ga_start_quote1' },
+            { type: 'p', key: 'ga_start_p6' }
           ]
         },
         mistakes: {
           titleKey: 'ga_mistakes', titleFallback: 'Топ-7 ошибок в холодных рассылках',
-          readTime: '8 min',
+          readTime: '12 min',
           sections: [
+            { type: 'img', icon: '&#9888;', height: 'tall', caption: 'ga_mistakes_img1' },
             { type: 'p', key: 'ga_mistakes_p1' },
             { type: 'h3', key: 'ga_mistakes_h1' },
             { type: 'p', key: 'ga_mistakes_p2' },
@@ -1304,13 +1396,19 @@
             { type: 'tip', key: 'ga_mistakes_tip1' },
             { type: 'h3', key: 'ga_mistakes_h2' },
             { type: 'p', key: 'ga_mistakes_p3' },
-            { type: 'ul', key: 'ga_mistakes_list2' }
+            { type: 'ul', key: 'ga_mistakes_list2' },
+            { type: 'img', icon: '&#128200;', height: 'short', caption: 'ga_mistakes_img2' },
+            { type: 'h3', key: 'ga_mistakes_h3' },
+            { type: 'p', key: 'ga_mistakes_p4' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_mistakes_kp1_t', key: 'ga_mistakes_kp1' },
+            { type: 'blockquote', key: 'ga_mistakes_quote1' }
           ]
         },
         legal: {
           titleKey: 'ga_legal', titleFallback: 'Юридические аспекты холодных рассылок',
-          readTime: '6 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#9878;', height: 'tall', caption: 'ga_legal_img1' },
             { type: 'p', key: 'ga_legal_p1' },
             { type: 'h3', key: 'ga_legal_h1' },
             { type: 'p', key: 'ga_legal_p2' },
@@ -1318,250 +1416,320 @@
             { type: 'tip', key: 'ga_legal_tip1' },
             { type: 'h3', key: 'ga_legal_h2' },
             { type: 'p', key: 'ga_legal_p3' },
-            { type: 'ul', key: 'ga_legal_list2' }
-          ]
-        },
-        effective: {
-          titleKey: 'ga_effective', titleFallback: 'Как писать письма, на которые отвечают',
-          readTime: '12 min',
-          sections: [
-            { type: 'p', key: 'ga_effective_p1' },
-            { type: 'h3', key: 'ga_effective_h1' },
-            { type: 'p', key: 'ga_effective_p2' },
-            { type: 'ol', key: 'ga_effective_list1' },
-            { type: 'tip', key: 'ga_effective_tip1' },
-            { type: 'h3', key: 'ga_effective_h2' },
-            { type: 'p', key: 'ga_effective_p3' },
-            { type: 'ul', key: 'ga_effective_list2' },
-            { type: 'h3', key: 'ga_effective_h3' },
-            { type: 'p', key: 'ga_effective_p4' },
-            { type: 'tip', key: 'ga_effective_tip2' }
-          ]
-        },
-        structures: {
-          titleKey: 'ga_structures', titleFallback: '5 структур холодных писем',
-          readTime: '10 min',
-          sections: [
-            { type: 'p', key: 'ga_structures_p1' },
-            { type: 'h3', key: 'ga_structures_h1' },
-            { type: 'p', key: 'ga_structures_p2' },
-            { type: 'ol', key: 'ga_structures_list1' },
-            { type: 'tip', key: 'ga_structures_tip1' },
-            { type: 'h3', key: 'ga_structures_h2' },
-            { type: 'p', key: 'ga_structures_p3' },
-            { type: 'ul', key: 'ga_structures_list2' }
-          ]
-        },
-        subjects: {
-          titleKey: 'ga_subjects', titleFallback: 'Subject line: как написать тему письма',
-          readTime: '7 min',
-          sections: [
-            { type: 'p', key: 'ga_subjects_p1' },
-            { type: 'h3', key: 'ga_subjects_h1' },
-            { type: 'p', key: 'ga_subjects_p2' },
-            { type: 'ul', key: 'ga_subjects_list1' },
-            { type: 'tip', key: 'ga_subjects_tip1' },
-            { type: 'h3', key: 'ga_subjects_h2' },
-            { type: 'p', key: 'ga_subjects_p3' },
-            { type: 'ul', key: 'ga_subjects_list2' }
-          ]
-        },
-        collect: {
-          titleKey: 'ga_collect', titleFallback: 'Как собрать базу целевых компаний',
-          readTime: '11 min',
-          sections: [
-            { type: 'p', key: 'ga_collect_p1' },
-            { type: 'h3', key: 'ga_collect_h1' },
-            { type: 'p', key: 'ga_collect_p2' },
-            { type: 'ol', key: 'ga_collect_list1' },
-            { type: 'tip', key: 'ga_collect_tip1' },
-            { type: 'h3', key: 'ga_collect_h2' },
-            { type: 'p', key: 'ga_collect_p3' },
-            { type: 'ul', key: 'ga_collect_list2' }
-          ]
-        },
-        verify: {
-          titleKey: 'ga_verify', titleFallback: 'Верификация email-адресов',
-          readTime: '8 min',
-          sections: [
-            { type: 'p', key: 'ga_verify_p1' },
-            { type: 'h3', key: 'ga_verify_h1' },
-            { type: 'p', key: 'ga_verify_p2' },
-            { type: 'ul', key: 'ga_verify_list1' },
-            { type: 'tip', key: 'ga_verify_tip1' },
-            { type: 'h3', key: 'ga_verify_h2' },
-            { type: 'p', key: 'ga_verify_p3' },
-            { type: 'ol', key: 'ga_verify_list2' }
-          ]
-        },
-        segment: {
-          titleKey: 'ga_segment', titleFallback: 'Сегментация аудитории',
-          readTime: '9 min',
-          sections: [
-            { type: 'p', key: 'ga_segment_p1' },
-            { type: 'h3', key: 'ga_segment_h1' },
-            { type: 'p', key: 'ga_segment_p2' },
-            { type: 'ol', key: 'ga_segment_list1' },
-            { type: 'tip', key: 'ga_segment_tip1' },
-            { type: 'h3', key: 'ga_segment_h2' },
-            { type: 'p', key: 'ga_segment_p3' },
-            { type: 'ul', key: 'ga_segment_list2' }
-          ]
-        },
-        metrics: {
-          titleKey: 'ga_metrics', titleFallback: 'Ключевые метрики холодных рассылок',
-          readTime: '10 min',
-          sections: [
-            { type: 'p', key: 'ga_metrics_p1' },
-            { type: 'h3', key: 'ga_metrics_h1' },
-            { type: 'p', key: 'ga_metrics_p2' },
-            { type: 'ol', key: 'ga_metrics_list1' },
-            { type: 'tip', key: 'ga_metrics_tip1' },
-            { type: 'h3', key: 'ga_metrics_h2' },
-            { type: 'p', key: 'ga_metrics_p3' },
-            { type: 'ul', key: 'ga_metrics_list2' }
-          ]
-        },
-        openrate: {
-          titleKey: 'ga_openrate', titleFallback: 'Как увеличить open rate до 40%',
-          readTime: '8 min',
-          sections: [
-            { type: 'p', key: 'ga_openrate_p1' },
-            { type: 'h3', key: 'ga_openrate_h1' },
-            { type: 'p', key: 'ga_openrate_p2' },
-            { type: 'ul', key: 'ga_openrate_list1' },
-            { type: 'tip', key: 'ga_openrate_tip1' },
-            { type: 'h3', key: 'ga_openrate_h2' },
-            { type: 'p', key: 'ga_openrate_p3' },
-            { type: 'ol', key: 'ga_openrate_list2' }
-          ]
-        },
-        abtest: {
-          titleKey: 'ga_abtest', titleFallback: 'A/B тестирование писем',
-          readTime: '9 min',
-          sections: [
-            { type: 'p', key: 'ga_abtest_p1' },
-            { type: 'h3', key: 'ga_abtest_h1' },
-            { type: 'p', key: 'ga_abtest_p2' },
-            { type: 'ol', key: 'ga_abtest_list1' },
-            { type: 'tip', key: 'ga_abtest_tip1' },
-            { type: 'h3', key: 'ga_abtest_h2' },
-            { type: 'p', key: 'ga_abtest_p3' },
-            { type: 'ul', key: 'ga_abtest_list2' }
+            { type: 'ul', key: 'ga_legal_list2' },
+            { type: 'img', icon: '&#128220;', height: 'short', caption: 'ga_legal_img2' },
+            { type: 'h3', key: 'ga_legal_h3' },
+            { type: 'p', key: 'ga_legal_p4' },
+            { type: 'keypoint', icon: '&#128737;', title: 'ga_legal_kp1_t', key: 'ga_legal_kp1' }
           ]
         },
         timing: {
           titleKey: 'ga_timing', titleFallback: 'Когда отправлять холодные письма',
-          readTime: '5 min',
+          readTime: '8 min',
           sections: [
+            { type: 'img', icon: '&#128336;', height: 'tall', caption: 'ga_timing_img1' },
             { type: 'p', key: 'ga_timing_p1' },
             { type: 'h3', key: 'ga_timing_h1' },
             { type: 'p', key: 'ga_timing_p2' },
             { type: 'ul', key: 'ga_timing_list1' },
             { type: 'tip', key: 'ga_timing_tip1' },
+            { type: 'img', icon: '&#128197;', height: 'short', caption: 'ga_timing_img2' },
             { type: 'h3', key: 'ga_timing_h2' },
             { type: 'p', key: 'ga_timing_p3' },
-            { type: 'ul', key: 'ga_timing_list2' }
+            { type: 'ul', key: 'ga_timing_list2' },
+            { type: 'keypoint', icon: '&#128338;', title: 'ga_timing_kp1_t', key: 'ga_timing_kp1' },
+            { type: 'blockquote', key: 'ga_timing_quote1' }
           ]
         },
         followup: {
           titleKey: 'ga_followup', titleFallback: 'Как написать follow-up письмо',
-          readTime: '7 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#128259;', height: 'tall', caption: 'ga_followup_img1' },
             { type: 'p', key: 'ga_followup_p1' },
             { type: 'h3', key: 'ga_followup_h1' },
             { type: 'p', key: 'ga_followup_p2' },
             { type: 'ol', key: 'ga_followup_list1' },
             { type: 'tip', key: 'ga_followup_tip1' },
+            { type: 'img', icon: '&#128229;', height: 'short', caption: 'ga_followup_img2' },
             { type: 'h3', key: 'ga_followup_h2' },
             { type: 'p', key: 'ga_followup_p3' },
-            { type: 'ul', key: 'ga_followup_list2' }
+            { type: 'ul', key: 'ga_followup_list2' },
+            { type: 'keypoint', icon: '&#9889;', title: 'ga_followup_kp1_t', key: 'ga_followup_kp1' },
+            { type: 'blockquote', key: 'ga_followup_quote1' }
+          ]
+        },
+        effective: {
+          titleKey: 'ga_effective', titleFallback: 'Как писать письма, на которые отвечают',
+          readTime: '15 min',
+          sections: [
+            { type: 'img', icon: '&#9993;', height: 'tall', caption: 'ga_effective_img1' },
+            { type: 'p', key: 'ga_effective_p1' },
+            { type: 'h3', key: 'ga_effective_h1' },
+            { type: 'p', key: 'ga_effective_p2' },
+            { type: 'ol', key: 'ga_effective_list1' },
+            { type: 'tip', key: 'ga_effective_tip1' },
+            { type: 'img', icon: '&#128221;', height: 'short', caption: 'ga_effective_img2' },
+            { type: 'h3', key: 'ga_effective_h2' },
+            { type: 'p', key: 'ga_effective_p3' },
+            { type: 'ul', key: 'ga_effective_list2' },
+            { type: 'h3', key: 'ga_effective_h3' },
+            { type: 'p', key: 'ga_effective_p4' },
+            { type: 'tip', key: 'ga_effective_tip2' },
+            { type: 'keypoint', icon: '&#127919;', title: 'ga_effective_kp1_t', key: 'ga_effective_kp1' },
+            { type: 'blockquote', key: 'ga_effective_quote1' }
+          ]
+        },
+        structures: {
+          titleKey: 'ga_structures', titleFallback: '5 структур холодных писем',
+          readTime: '12 min',
+          sections: [
+            { type: 'img', icon: '&#128203;', height: 'tall', caption: 'ga_structures_img1' },
+            { type: 'p', key: 'ga_structures_p1' },
+            { type: 'h3', key: 'ga_structures_h1' },
+            { type: 'p', key: 'ga_structures_p2' },
+            { type: 'ol', key: 'ga_structures_list1' },
+            { type: 'tip', key: 'ga_structures_tip1' },
+            { type: 'img', icon: '&#128209;', height: 'short', caption: 'ga_structures_img2' },
+            { type: 'h3', key: 'ga_structures_h2' },
+            { type: 'p', key: 'ga_structures_p3' },
+            { type: 'ul', key: 'ga_structures_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_structures_kp1_t', key: 'ga_structures_kp1' }
+          ]
+        },
+        subjects: {
+          titleKey: 'ga_subjects', titleFallback: 'Subject line: как написать тему письма',
+          readTime: '10 min',
+          sections: [
+            { type: 'img', icon: '&#128233;', height: 'tall', caption: 'ga_subjects_img1' },
+            { type: 'p', key: 'ga_subjects_p1' },
+            { type: 'h3', key: 'ga_subjects_h1' },
+            { type: 'p', key: 'ga_subjects_p2' },
+            { type: 'ul', key: 'ga_subjects_list1' },
+            { type: 'tip', key: 'ga_subjects_tip1' },
+            { type: 'img', icon: '&#128269;', height: 'short', caption: 'ga_subjects_img2' },
+            { type: 'h3', key: 'ga_subjects_h2' },
+            { type: 'p', key: 'ga_subjects_p3' },
+            { type: 'ul', key: 'ga_subjects_list2' },
+            { type: 'keypoint', icon: '&#127919;', title: 'ga_subjects_kp1_t', key: 'ga_subjects_kp1' },
+            { type: 'blockquote', key: 'ga_subjects_quote1' }
           ]
         },
         personalization: {
           titleKey: 'ga_personalization', titleFallback: 'Персонализация: как делать правильно',
-          readTime: '8 min',
+          readTime: '12 min',
           sections: [
+            { type: 'img', icon: '&#128100;', height: 'tall', caption: 'ga_personalization_img1' },
             { type: 'p', key: 'ga_personalization_p1' },
             { type: 'h3', key: 'ga_personalization_h1' },
             { type: 'p', key: 'ga_personalization_p2' },
             { type: 'ol', key: 'ga_personalization_list1' },
             { type: 'tip', key: 'ga_personalization_tip1' },
+            { type: 'img', icon: '&#128269;', height: 'short', caption: 'ga_personalization_img2' },
             { type: 'h3', key: 'ga_personalization_h2' },
             { type: 'p', key: 'ga_personalization_p3' },
-            { type: 'ul', key: 'ga_personalization_list2' }
+            { type: 'ul', key: 'ga_personalization_list2' },
+            { type: 'keypoint', icon: '&#9889;', title: 'ga_personalization_kp1_t', key: 'ga_personalization_kp1' },
+            { type: 'blockquote', key: 'ga_personalization_quote1' }
           ]
         },
         tone: {
           titleKey: 'ga_tone', titleFallback: 'Тон и стиль холодных писем',
-          readTime: '6 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#127908;', height: 'tall', caption: 'ga_tone_img1' },
             { type: 'p', key: 'ga_tone_p1' },
             { type: 'h3', key: 'ga_tone_h1' },
             { type: 'p', key: 'ga_tone_p2' },
             { type: 'ul', key: 'ga_tone_list1' },
             { type: 'tip', key: 'ga_tone_tip1' },
+            { type: 'img', icon: '&#128172;', height: 'short', caption: 'ga_tone_img2' },
             { type: 'h3', key: 'ga_tone_h2' },
             { type: 'p', key: 'ga_tone_p3' },
-            { type: 'ul', key: 'ga_tone_list2' }
+            { type: 'ul', key: 'ga_tone_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_tone_kp1_t', key: 'ga_tone_kp1' },
+            { type: 'blockquote', key: 'ga_tone_quote1' }
+          ]
+        },
+        collect: {
+          titleKey: 'ga_collect', titleFallback: 'Как собрать базу целевых компаний',
+          readTime: '14 min',
+          sections: [
+            { type: 'img', icon: '&#128202;', height: 'tall', caption: 'ga_collect_img1' },
+            { type: 'p', key: 'ga_collect_p1' },
+            { type: 'h3', key: 'ga_collect_h1' },
+            { type: 'p', key: 'ga_collect_p2' },
+            { type: 'ol', key: 'ga_collect_list1' },
+            { type: 'tip', key: 'ga_collect_tip1' },
+            { type: 'img', icon: '&#128269;', height: 'short', caption: 'ga_collect_img2' },
+            { type: 'h3', key: 'ga_collect_h2' },
+            { type: 'p', key: 'ga_collect_p3' },
+            { type: 'ul', key: 'ga_collect_list2' },
+            { type: 'keypoint', icon: '&#128176;', title: 'ga_collect_kp1_t', key: 'ga_collect_kp1' },
+            { type: 'blockquote', key: 'ga_collect_quote1' }
+          ]
+        },
+        verify: {
+          titleKey: 'ga_verify', titleFallback: 'Верификация email-адресов',
+          readTime: '10 min',
+          sections: [
+            { type: 'img', icon: '&#9989;', height: 'tall', caption: 'ga_verify_img1' },
+            { type: 'p', key: 'ga_verify_p1' },
+            { type: 'h3', key: 'ga_verify_h1' },
+            { type: 'p', key: 'ga_verify_p2' },
+            { type: 'ul', key: 'ga_verify_list1' },
+            { type: 'tip', key: 'ga_verify_tip1' },
+            { type: 'img', icon: '&#128295;', height: 'short', caption: 'ga_verify_img2' },
+            { type: 'h3', key: 'ga_verify_h2' },
+            { type: 'p', key: 'ga_verify_p3' },
+            { type: 'ol', key: 'ga_verify_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_verify_kp1_t', key: 'ga_verify_kp1' }
+          ]
+        },
+        segment: {
+          titleKey: 'ga_segment', titleFallback: 'Сегментация аудитории',
+          readTime: '12 min',
+          sections: [
+            { type: 'img', icon: '&#128200;', height: 'tall', caption: 'ga_segment_img1' },
+            { type: 'p', key: 'ga_segment_p1' },
+            { type: 'h3', key: 'ga_segment_h1' },
+            { type: 'p', key: 'ga_segment_p2' },
+            { type: 'ol', key: 'ga_segment_list1' },
+            { type: 'tip', key: 'ga_segment_tip1' },
+            { type: 'img', icon: '&#128194;', height: 'short', caption: 'ga_segment_img2' },
+            { type: 'h3', key: 'ga_segment_h2' },
+            { type: 'p', key: 'ga_segment_p3' },
+            { type: 'ul', key: 'ga_segment_list2' },
+            { type: 'keypoint', icon: '&#127919;', title: 'ga_segment_kp1_t', key: 'ga_segment_kp1' },
+            { type: 'blockquote', key: 'ga_segment_quote1' }
           ]
         },
         sources: {
           titleKey: 'ga_sources', titleFallback: 'Источники данных для холодных рассылок',
-          readTime: '7 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#128218;', height: 'tall', caption: 'ga_sources_img1' },
             { type: 'p', key: 'ga_sources_p1' },
             { type: 'h3', key: 'ga_sources_h1' },
             { type: 'p', key: 'ga_sources_p2' },
             { type: 'ul', key: 'ga_sources_list1' },
             { type: 'tip', key: 'ga_sources_tip1' },
+            { type: 'img', icon: '&#128176;', height: 'short', caption: 'ga_sources_img2' },
             { type: 'h3', key: 'ga_sources_h2' },
             { type: 'p', key: 'ga_sources_p3' },
-            { type: 'ul', key: 'ga_sources_list2' }
+            { type: 'ul', key: 'ga_sources_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_sources_kp1_t', key: 'ga_sources_kp1' }
           ]
         },
         enrichment: {
           titleKey: 'ga_enrichment', titleFallback: 'Обогащение данных (data enrichment)',
-          readTime: '8 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#128256;', height: 'tall', caption: 'ga_enrichment_img1' },
             { type: 'p', key: 'ga_enrichment_p1' },
             { type: 'h3', key: 'ga_enrichment_h1' },
             { type: 'p', key: 'ga_enrichment_p2' },
             { type: 'ol', key: 'ga_enrichment_list1' },
             { type: 'tip', key: 'ga_enrichment_tip1' },
+            { type: 'img', icon: '&#128295;', height: 'short', caption: 'ga_enrichment_img2' },
             { type: 'h3', key: 'ga_enrichment_h2' },
             { type: 'p', key: 'ga_enrichment_p3' },
-            { type: 'ul', key: 'ga_enrichment_list2' }
+            { type: 'ul', key: 'ga_enrichment_list2' },
+            { type: 'keypoint', icon: '&#9889;', title: 'ga_enrichment_kp1_t', key: 'ga_enrichment_kp1' },
+            { type: 'blockquote', key: 'ga_enrichment_quote1' }
+          ]
+        },
+        metrics: {
+          titleKey: 'ga_metrics', titleFallback: 'Ключевые метрики холодных рассылок',
+          readTime: '14 min',
+          sections: [
+            { type: 'img', icon: '&#128202;', height: 'tall', caption: 'ga_metrics_img1' },
+            { type: 'p', key: 'ga_metrics_p1' },
+            { type: 'h3', key: 'ga_metrics_h1' },
+            { type: 'p', key: 'ga_metrics_p2' },
+            { type: 'ol', key: 'ga_metrics_list1' },
+            { type: 'tip', key: 'ga_metrics_tip1' },
+            { type: 'img', icon: '&#128200;', height: 'short', caption: 'ga_metrics_img2' },
+            { type: 'h3', key: 'ga_metrics_h2' },
+            { type: 'p', key: 'ga_metrics_p3' },
+            { type: 'ul', key: 'ga_metrics_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_metrics_kp1_t', key: 'ga_metrics_kp1' },
+            { type: 'blockquote', key: 'ga_metrics_quote1' }
+          ]
+        },
+        openrate: {
+          titleKey: 'ga_openrate', titleFallback: 'Как увеличить open rate до 40%',
+          readTime: '12 min',
+          sections: [
+            { type: 'img', icon: '&#128236;', height: 'tall', caption: 'ga_openrate_img1' },
+            { type: 'p', key: 'ga_openrate_p1' },
+            { type: 'h3', key: 'ga_openrate_h1' },
+            { type: 'p', key: 'ga_openrate_p2' },
+            { type: 'ul', key: 'ga_openrate_list1' },
+            { type: 'tip', key: 'ga_openrate_tip1' },
+            { type: 'img', icon: '&#128336;', height: 'short', caption: 'ga_openrate_img2' },
+            { type: 'h3', key: 'ga_openrate_h2' },
+            { type: 'p', key: 'ga_openrate_p3' },
+            { type: 'ul', key: 'ga_openrate_list2' },
+            { type: 'keypoint', icon: '&#127919;', title: 'ga_openrate_kp1_t', key: 'ga_openrate_kp1' },
+            { type: 'blockquote', key: 'ga_openrate_quote1' }
+          ]
+        },
+        abtest: {
+          titleKey: 'ga_abtest', titleFallback: 'A/B тестирование писем',
+          readTime: '12 min',
+          sections: [
+            { type: 'img', icon: '&#128260;', height: 'tall', caption: 'ga_abtest_img1' },
+            { type: 'p', key: 'ga_abtest_p1' },
+            { type: 'h3', key: 'ga_abtest_h1' },
+            { type: 'p', key: 'ga_abtest_p2' },
+            { type: 'ol', key: 'ga_abtest_list1' },
+            { type: 'tip', key: 'ga_abtest_tip1' },
+            { type: 'img', icon: '&#128202;', height: 'short', caption: 'ga_abtest_img2' },
+            { type: 'h3', key: 'ga_abtest_h2' },
+            { type: 'p', key: 'ga_abtest_p3' },
+            { type: 'ul', key: 'ga_abtest_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_abtest_kp1_t', key: 'ga_abtest_kp1' },
+            { type: 'blockquote', key: 'ga_abtest_quote1' }
           ]
         },
         deliverability: {
           titleKey: 'ga_deliverability', titleFallback: 'Доставляемость email: как не попасть в спам',
-          readTime: '10 min',
+          readTime: '14 min',
           sections: [
+            { type: 'img', icon: '&#128737;', height: 'tall', caption: 'ga_deliverability_img1' },
             { type: 'p', key: 'ga_deliverability_p1' },
             { type: 'h3', key: 'ga_deliverability_h1' },
             { type: 'p', key: 'ga_deliverability_p2' },
             { type: 'ol', key: 'ga_deliverability_list1' },
             { type: 'tip', key: 'ga_deliverability_tip1' },
+            { type: 'img', icon: '&#128274;', height: 'short', caption: 'ga_deliverability_img2' },
             { type: 'h3', key: 'ga_deliverability_h2' },
             { type: 'p', key: 'ga_deliverability_p3' },
-            { type: 'ul', key: 'ga_deliverability_list2' }
+            { type: 'ul', key: 'ga_deliverability_list2' },
+            { type: 'keypoint', icon: '&#9889;', title: 'ga_deliverability_kp1_t', key: 'ga_deliverability_kp1' },
+            { type: 'blockquote', key: 'ga_deliverability_quote1' }
           ]
         },
         roi: {
           titleKey: 'ga_roi', titleFallback: 'Расчёт ROI холодных рассылок',
-          readTime: '7 min',
+          readTime: '10 min',
           sections: [
+            { type: 'img', icon: '&#128176;', height: 'tall', caption: 'ga_roi_img1' },
             { type: 'p', key: 'ga_roi_p1' },
             { type: 'h3', key: 'ga_roi_h1' },
             { type: 'p', key: 'ga_roi_p2' },
             { type: 'ol', key: 'ga_roi_list1' },
             { type: 'tip', key: 'ga_roi_tip1' },
+            { type: 'img', icon: '&#128200;', height: 'short', caption: 'ga_roi_img2' },
             { type: 'h3', key: 'ga_roi_h2' },
             { type: 'p', key: 'ga_roi_p3' },
-            { type: 'ul', key: 'ga_roi_list2' }
+            { type: 'ul', key: 'ga_roi_list2' },
+            { type: 'keypoint', icon: '&#128161;', title: 'ga_roi_kp1_t', key: 'ga_roi_kp1' },
+            { type: 'blockquote', key: 'ga_roi_quote1' }
           ]
         }
+      }
       }
     };
 
@@ -1607,8 +1775,21 @@
           content += `<div class="meta"><span>${article.readTime}</span></div>`;
           article.sections.forEach(sec => {
             if (sec.type === 'h3') content += `<h3>${L[sec.key]}</h3>`;
+            else if (sec.type === 'h4') content += `<h4 style="font-size:1.05rem;font-weight:700;margin:20px 0 8px;">${L[sec.key]}</h4>`;
             else if (sec.type === 'p') content += `<p>${L[sec.key]}</p>`;
             else if (sec.type === 'tip') content += `<div class="tip">${L[sec.key]}</div>`;
+            else if (sec.type === 'img') {
+              const h = sec.height === 'short' ? 'short' : 'tall';
+              content += `<div class="article-img ${h}"><span class="img-icon">${sec.icon || '&#128247;'}</span>${sec.caption ? `<div class="img-caption">${L[sec.caption] || sec.caption}</div>` : ''}</div>`;
+            }
+            else if (sec.type === 'blockquote') content += `<blockquote>${L[sec.key]}</blockquote>`;
+            else if (sec.type === 'steps') {
+              const items = L[sec.key];
+              content += '<ol class="steps">' + items.map(i => `<li>${i}</li>`).join('') + '</ol>';
+            }
+            else if (sec.type === 'keypoint') {
+              content += `<div class="key-point"><div class="kp-icon">${sec.icon || '&#128161;'}</div><div class="kp-text"><h4>${L[sec.title]}</h4><p>${L[sec.key]}</p></div></div>`;
+            }
             else if (sec.type === 'ol') {
               const items = L[sec.key];
               content += '<ol>' + items.map(i => `<li>${i}</li>`).join('') + '</ol>';
