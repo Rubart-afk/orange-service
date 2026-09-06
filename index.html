@@ -202,13 +202,24 @@
     .cta-banner .btn { position: relative; z-index:1; }
 
     footer {
-      border-top: 1px solid rgba(0,0,0,0.06); padding: 40px 6%;
-      display: flex; justify-content: space-between; align-items: center;
-      color: var(--muted); font-size: .9rem; flex-wrap: wrap; gap: 20px;
+      border-top: 1px solid rgba(0,0,0,0.06); padding: 50px 6% 30px;
+      color: var(--muted); font-size: .9rem;
     }
-    footer .links { display: flex; gap: 24px; }
-    footer .links a { transition: color .2s; }
-    footer .links a:hover { color: var(--accent); }
+    footer .footer-cols {
+      display: flex; gap: 60px; max-width: 1100px; margin: 0 auto 36px;
+      flex-wrap: wrap;
+    }
+    footer .footer-col { display: flex; flex-direction: column; gap: 10px; }
+    footer .footer-col-title {
+      font-size: .8rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: var(--text); margin-bottom: 4px;
+    }
+    footer .footer-col a { color: var(--muted); transition: color .2s; }
+    footer .footer-col a:hover { color: var(--accent); }
+    footer .footer-bottom {
+      text-align: center; padding-top: 24px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
@@ -523,13 +534,23 @@
   </section>
 
   <footer>
-    <div class="links">
-      <a href="#features" data-i18n="nav_features">Возможности</a>
-      <a href="#materials" data-i18n="nav_materials">Материалы</a>
-      <a href="#tariffs" data-i18n="nav_tariffs">Тарифы</a>
-      <a href="#contact" data-i18n="footer_contacts">Контакты</a>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <div class="footer-col-title" data-i18n="nav_features">Возможности</div>
+        <a href="#features" data-i18n="sub_cold">Холодная рассылка</a>
+        <a href="#turnkey" data-i18n="nav_turnkey">Под ключ</a>
+        <a href="#tariffs" data-i18n="nav_tariffs">Тарифы</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title" data-i18n="sub_guides">Гайды</div>
+        <a href="#materials" data-i18n="sub_guides">Гайды</a>
+        <a href="#materials" data-i18n="sub_cases">Кейсы</a>
+        <a href="#materials" data-i18n="sub_updates">Обновления</a>
+        <a href="#materials" data-i18n="sub_blog">Блог</a>
+        <a href="#materials" data-i18n="sub_support">Поддержка</a>
+      </div>
     </div>
-    <div>&copy; 2026 Orange. <span data-i18n="footer_rights">Все права защищены.</span></div>
+    <div class="footer-bottom">&copy; 2026 Orange. <span data-i18n="footer_rights">Все права защищены.</span></div>
   </footer>
 
   <!-- LOGIN MODAL -->
