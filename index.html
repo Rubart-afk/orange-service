@@ -276,31 +276,55 @@
     }
     .back-btn:hover { background: rgba(0,0,0,0.08); color: var(--text); }
 
-    .guide-card {
+    .guides-layout {
+      display: flex; gap: 32px; max-width: 1100px; margin: 0 auto;
+    }
+    .guides-sidebar {
+      width: 280px; flex-shrink: 0;
       background: var(--card); border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 18px; overflow: hidden; cursor: pointer;
-      transition: transform .2s, border-color .2s, box-shadow .2s;
+      border-radius: 16px; padding: 8px; position: sticky; top: 80px;
+      max-height: calc(100vh - 100px); overflow-y: auto;
     }
-    .guide-card:hover { transform: translateY(-4px); border-color: rgba(255,140,0,0.4); box-shadow: 0 12px 30px rgba(0,0,0,0.08); }
-    .guide-card .thumb {
-      height: 140px; background: var(--grad);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; color: #fff; font-weight: 700;
+    .guides-sidebar::-webkit-scrollbar { width: 4px; }
+    .guides-sidebar::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.1); border-radius: 4px; }
+    .guides-sidebar-title {
+      padding: 14px 16px 10px; font-size: .8rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 1px; color: var(--muted);
     }
-    .guide-card .body { padding: 20px; }
-    .guide-card h3 { font-size: 1.05rem; margin-bottom: 6px; }
-    .guide-card p { color: var(--muted); font-size: .9rem; }
-    .guide-card .count { display: inline-block; margin-top: 10px; font-size: .8rem; font-weight: 600; color: var(--accent2); background: rgba(255,140,0,0.1); padding: 4px 10px; border-radius: 16px; }
+    .sidebar-cat {
+      border: none; background: transparent; width: 100%;
+      text-align: left; padding: 12px 16px; border-radius: 10px;
+      font-size: .95rem; font-weight: 600; color: var(--text);
+      cursor: pointer; transition: all .15s; font-family: inherit;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .sidebar-cat:hover { background: rgba(255,140,0,0.08); }
+    .sidebar-cat.active { background: rgba(255,140,0,0.12); color: var(--accent2); }
+    .sidebar-cat .arrow {
+      font-size: .75rem; transition: transform .2s; color: var(--muted);
+    }
+    .sidebar-cat.active .arrow { transform: rotate(90deg); }
+    .sidebar-sub {
+      overflow: hidden; max-height: 0; transition: max-height .25s ease;
+      padding-left: 8px;
+    }
+    .sidebar-sub.open { max-height: 300px; }
+    .sidebar-article {
+      border: none; background: transparent; width: 100%;
+      text-align: left; padding: 10px 16px 10px 20px; border-radius: 8px;
+      font-size: .88rem; color: var(--muted); cursor: pointer;
+      transition: all .15s; font-family: inherit;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .sidebar-article:hover { background: rgba(255,140,0,0.06); color: var(--text); }
+    .sidebar-article.active { background: rgba(255,140,0,0.1); color: var(--accent2); font-weight: 600; }
+    .sidebar-article .dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: rgba(0,0,0,0.15); flex-shrink: 0;
+    }
+    .sidebar-article.active .dot { background: var(--accent); }
 
-    .article-card {
-      background: var(--card); border: 1px solid rgba(0,0,0,0.06);
-      border-radius: 14px; padding: 20px 24px; cursor: pointer;
-      transition: all .2s; display: flex; justify-content: space-between; align-items: center;
-    }
-    .article-card:hover { border-color: rgba(255,140,0,0.4); background: rgba(255,140,0,0.03); }
-    .article-card .info h3 { font-size: 1rem; margin-bottom: 4px; }
-    .article-card .info p { color: var(--muted); font-size: .88rem; }
-    .article-card .arrow { color: var(--accent2); font-size: 1.2rem; }
+    .guides-content { flex: 1; min-width: 0; }
 
     .article-view { max-width: 720px; }
     .article-view h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 12px; }
@@ -316,11 +340,22 @@
     }
     .article-view .tip strong { color: var(--accent2); }
 
+    .guides-welcome {
+      display: flex; flex-direction: column; align-items: center;
+      justify-content: center; text-align: center; min-height: 400px;
+      color: var(--muted);
+    }
+    .guides-welcome .icon { font-size: 3rem; margin-bottom: 16px; opacity: .4; }
+    .guides-welcome h3 { font-size: 1.3rem; font-weight: 700; color: var(--text); margin-bottom: 8px; }
+    .guides-welcome p { font-size: .95rem; }
+
     @media (max-width: 820px) {
       .nav { flex-wrap: wrap; gap: 12px; justify-content: space-between; }
       .nav-right { order: 3; width: 100%; justify-content: center; }
       .stats { gap: 30px; }
       .cta-banner { padding: 40px 24px; }
+      .guides-layout { flex-direction: column; }
+      .guides-sidebar { width: 100%; position: static; max-height: none; }
     }
   </style>
 </head>
@@ -912,8 +947,7 @@
         showGuides();
       } else {
         isGuidesPage = false;
-        guideLevel = 'categories';
-        guideCurrentCat = null;
+        expandedCat = null;
         guideCurrentArticle = null;
         pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
         pageContent.innerHTML = page.html;
@@ -1240,102 +1274,92 @@
       }
     };
 
-    let guideLevel = 'categories';
-    let guideCurrentCat = null;
     let guideCurrentArticle = null;
     let isGuidesPage = false;
+    let expandedCat = null;
 
     function showGuides() {
       isGuidesPage = true;
-      guideLevel = 'categories';
-      guideCurrentCat = null;
       guideCurrentArticle = null;
+      expandedCat = null;
       renderGuides();
     }
 
     function renderGuides() {
       const L = T[currentLang];
-      let html = '';
+      const sidebar = guidesData.categories.map(cat => {
+        const isOpen = expandedCat === cat.id;
+        const articles = guidesData.articles[cat.id] || [];
+        const articleItems = articles.map(art => {
+          const isActive = guideCurrentArticle === art.id;
+          return `<button class="sidebar-article${isActive ? ' active' : ''}" onclick="openGuideArticle('${cat.id}','${art.id}')">
+            <span class="dot"></span>
+            <span>${L[art.titleKey] || art.titleFallback}</span>
+          </button>`;
+        }).join('');
 
-      if (guideLevel === 'categories') {
-        html = '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;">';
-        guidesData.categories.forEach(cat => {
-          html += `<div class="guide-card" onclick="openGuideCat('${cat.id}')">
-            <div class="thumb">${cat.icon}</div>
-            <div class="body">
-              <h3>${L[cat.titleKey] || cat.titleFallback}</h3>
-              <p>${L[cat.descKey] || cat.descFallback}</p>
-              <span class="count">${cat.count} ${currentLang === 'en' ? 'articles' : 'статей'}</span>
-            </div>
-          </div>`;
-        });
-        html += '</div>';
-      } else if (guideLevel === 'articles') {
-        const cat = guidesData.categories.find(c => c.id === guideCurrentCat);
-        html += `<button class="back-btn" onclick="goBackGuides()"><span>${L.back}</span></button>`;
-        html += '<div style="display:flex;flex-direction:column;gap:12px;">';
-        guidesData.articles[guideCurrentCat].forEach(art => {
-          html += `<div class="article-card" onclick="openGuideArticle('${guideCurrentCat}','${art.id}')">
-            <div class="info">
-              <h3>${L[art.titleKey] || art.titleFallback}</h3>
-              <p>${L[art.descKey] || art.descFallback}</p>
-            </div>
-            <span class="arrow">&rarr;</span>
-          </div>`;
-        });
-        html += '</div>';
-      } else if (guideLevel === 'article') {
+        return `<div class="sidebar-cat-wrap">
+          <button class="sidebar-cat${isOpen ? ' active' : ''}" onclick="toggleSidebarCat('${cat.id}')">
+            <span>${L[cat.titleKey] || cat.titleFallback}</span>
+            <span class="arrow">&#9656;</span>
+          </button>
+          <div class="sidebar-sub${isOpen ? ' open' : ''}">${articleItems}</div>
+        </div>`;
+      }).join('');
+
+      let content = '';
+      if (guideCurrentArticle) {
         const article = guidesData.content[guideCurrentArticle];
-        html += `<button class="back-btn" onclick="goBackGuides()"><span>${L.back}</span></button>`;
-        html += '<div class="article-view">';
-        html += `<h2>${L[article.titleKey] || article.titleFallback}</h2>`;
-        html += `<div class="meta"><span>${article.readTime}</span></div>`;
-        article.sections.forEach(sec => {
-          if (sec.type === 'h3') {
-            html += `<h3>${L[sec.key]}</h3>`;
-          } else if (sec.type === 'p') {
-            html += `<p>${L[sec.key]}</p>`;
-          } else if (sec.type === 'tip') {
-            html += `<div class="tip">${L[sec.key]}</div>`;
-          } else if (sec.type === 'ol') {
-            const items = L[sec.key];
-            html += '<ol>' + items.map(i => `<li>${i}</li>`).join('') + '</ol>';
-          } else if (sec.type === 'ul') {
-            const items = L[sec.key];
-            html += '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
-          }
-        });
-        html += '</div>';
+        if (article) {
+          content = '<div class="article-view">';
+          content += `<h2>${L[article.titleKey] || article.titleFallback}</h2>`;
+          content += `<div class="meta"><span>${article.readTime}</span></div>`;
+          article.sections.forEach(sec => {
+            if (sec.type === 'h3') content += `<h3>${L[sec.key]}</h3>`;
+            else if (sec.type === 'p') content += `<p>${L[sec.key]}</p>`;
+            else if (sec.type === 'tip') content += `<div class="tip">${L[sec.key]}</div>`;
+            else if (sec.type === 'ol') {
+              const items = L[sec.key];
+              content += '<ol>' + items.map(i => `<li>${i}</li>`).join('') + '</ol>';
+            } else if (sec.type === 'ul') {
+              const items = L[sec.key];
+              content += '<ul>' + items.map(i => `<li>${i}</li>`).join('') + '</ul>';
+            }
+          });
+          content += '</div>';
+        }
+      } else {
+        content = `<div class="guides-welcome">
+          <div class="icon">&#128218;</div>
+          <h3>${currentLang === 'en' ? 'Select a guide' : 'Выберите гайд'}</h3>
+          <p>${currentLang === 'en' ? 'Choose a topic from the sidebar to start reading' : 'Выберите тему из сайдбара, чтобы начать чтение'}</p>
+        </div>`;
       }
 
-      pageContent.innerHTML = html;
+      pageContent.innerHTML = `<div class="guides-layout">
+        <div class="guides-sidebar">
+          <div class="guides-sidebar-title">${L.nav_materials}</div>
+          ${sidebar}
+        </div>
+        <div class="guides-content">${content}</div>
+      </div>`;
     }
 
-    window.openGuideCat = function(catId) {
-      guideLevel = 'articles';
-      guideCurrentCat = catId;
+    window.toggleSidebarCat = function(catId) {
+      if (expandedCat === catId) {
+        expandedCat = null;
+      } else {
+        expandedCat = catId;
+      }
       renderGuides();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
     window.openGuideArticle = function(catId, artId) {
-      guideLevel = 'article';
-      guideCurrentCat = catId;
+      expandedCat = catId;
       guideCurrentArticle = artId;
       renderGuides();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    };
-
-    window.goBackGuides = function() {
-      if (guideLevel === 'article') {
-        guideLevel = 'articles';
-        guideCurrentArticle = null;
-      } else if (guideLevel === 'articles') {
-        guideLevel = 'categories';
-        guideCurrentCat = null;
-      }
-      renderGuides();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      const contentEl = document.querySelector('.guides-content');
+      if (contentEl) contentEl.scrollTop = 0;
     };
   </script>
 </body>
