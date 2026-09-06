@@ -98,6 +98,7 @@
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .page-section { padding: 30px 6% 60px; min-height: 60vh; }
+    .page-section.guides-active { padding-left: 0; }
     .page-section.hidden { display: none; }
     .page-header { display: flex; align-items: center; gap: 20px; margin-bottom: 36px; }
     .page-title { font-size: 2rem; font-weight: 800; }
@@ -964,10 +965,12 @@
       materialsSection.classList.add('hidden');
       if (page.isGuides) {
         isGuidesPage = true;
+        pageSection.classList.add('guides-active');
         pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
         showGuides();
       } else {
         isGuidesPage = false;
+        pageSection.classList.remove('guides-active');
         expandedCat = null;
         guideCurrentArticle = null;
         pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
@@ -979,6 +982,7 @@
 
     function showHome() {
       isGuidesPage = false;
+      pageSection.classList.remove('guides-active');
       heroSection.classList.remove('hidden');
       featuresSection.classList.remove('hidden');
       materialsSection.classList.remove('hidden');
