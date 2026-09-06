@@ -98,7 +98,7 @@
     .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
     .page-section { padding: 30px 6% 60px; min-height: 60vh; }
-    .page-section.guides-active { padding-left: 0; }
+    .page-section.guides-active { padding-left: 0; padding-top: 10px; }
     .page-section.hidden { display: none; }
     .page-header { display: flex; align-items: center; gap: 20px; margin-bottom: 36px; }
     .page-title { font-size: 2rem; font-weight: 800; }
@@ -412,7 +412,7 @@
   </nav>
 
   <div id="pageSection" class="page-section hidden">
-    <div class="page-header">
+    <div class="page-header" id="pageHeader">
       <h2 class="page-title" id="pageTitle"></h2>
     </div>
     <div class="page-content" id="pageContent"></div>
@@ -953,6 +953,7 @@
     const featuresSection = document.getElementById('features');
     const materialsSection = document.getElementById('materials');
     const pageSection = document.getElementById('pageSection');
+    const pageHeader = document.getElementById('pageHeader');
     const pageTitle = document.getElementById('pageTitle');
     const pageContent = document.getElementById('pageContent');
     const logoBtn = document.getElementById('logoBtn');
@@ -966,11 +967,12 @@
       if (page.isGuides) {
         isGuidesPage = true;
         pageSection.classList.add('guides-active');
-        pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
+        pageHeader.style.display = 'none';
         showGuides();
       } else {
         isGuidesPage = false;
         pageSection.classList.remove('guides-active');
+        pageHeader.style.display = '';
         expandedCat = null;
         guideCurrentArticle = null;
         pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
