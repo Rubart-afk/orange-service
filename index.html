@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Сервис холодных рассылок для малого и среднего бизнеса</title>
+  <title>Orange - Cold outreach service</title>
   <style>
     :root {
       --bg: #f5f5f5;
@@ -18,10 +18,8 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
       font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
+      background: var(--bg); color: var(--text);
+      line-height: 1.6; overflow-x: hidden;
     }
     a { color: inherit; text-decoration: none; }
 
@@ -34,11 +32,10 @@
     }
     .nav-tabs { display: flex; align-items: center; gap: 6px; }
     .nav-tab {
-      padding: 10px 20px; border-radius: 40px;
-      border: none; background: transparent;
-      color: var(--muted); font-weight: 600; font-size: 1rem;
-      cursor: pointer; transition: all .2s; text-decoration: none;
-      font-family: inherit; line-height: 1.6;
+      padding: 10px 20px; border-radius: 40px; border: none;
+      background: transparent; color: var(--muted); font-weight: 600;
+      font-size: 1rem; cursor: pointer; transition: all .2s;
+      text-decoration: none; font-family: inherit; line-height: 1.6;
     }
     .nav-tab:hover { color: var(--accent); }
     .nav-dropdown-wrap { position: relative; padding-bottom: 12px; margin-bottom: -12px; }
@@ -50,9 +47,9 @@
     }
     .nav-dropdown-wrap:hover .nav-dropdown { display: block; animation: fadeIn .2s ease; }
     .nav-dropdown button {
-      width: 100%; text-align: left; padding: 10px 14px;
-      border: none; background: transparent; color: var(--muted);
-      border-radius: 10px; font-size: .95rem; cursor: pointer; transition: all .15s;
+      width: 100%; text-align: left; padding: 10px 14px; border: none;
+      background: transparent; color: var(--muted); border-radius: 10px;
+      font-size: .95rem; cursor: pointer; transition: all .15s; font-family: inherit;
     }
     .nav-dropdown button:hover { background: rgba(255,140,0,0.1); color: var(--text); }
     .nav-right { display: flex; align-items: center; gap: 12px; }
@@ -73,24 +70,21 @@
     }
     .lang-dropdown.open { display: block; }
     .lang-dropdown button {
-      width: 100%; text-align: left; padding: 8px 12px;
-      border: none; background: transparent; color: var(--text);
-      border-radius: 8px; font-size: .95rem; cursor: pointer;
+      width: 100%; text-align: left; padding: 8px 12px; border: none;
+      background: transparent; color: var(--text); border-radius: 8px;
+      font-size: .95rem; cursor: pointer; font-family: inherit;
     }
     .lang-dropdown button:hover { background: rgba(0,0,0,0.05); }
     .btn-login {
-      padding: 12px 28px; border-radius: 40px;
-      border: none; background: transparent;
-      color: var(--text); font-weight: 600; font-size: 1.05rem;
-      cursor: pointer; transition: all .2s;
-      font-family: inherit; line-height: 1.6;
+      padding: 10px 24px; border-radius: 40px; border: none;
+      background: transparent; color: var(--text); font-weight: 600;
+      font-size: 1rem; cursor: pointer; transition: all .2s; font-family: inherit;
     }
     .btn-login:hover { color: var(--accent); }
-
     .btn {
       display: inline-block; padding: 12px 26px; border-radius: 12px;
       font-weight: 600; cursor: pointer; border: none;
-      transition: transform .15s, box-shadow .2s, background .2s;
+      transition: transform .15s, box-shadow .2s; font-family: inherit;
     }
     .btn-primary {
       background: var(--grad); color: #fff;
@@ -218,42 +212,36 @@
 
     @keyframes fadeIn { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
-    @media (max-width: 820px) {
-      .nav { flex-wrap: wrap; gap: 12px; justify-content: space-between; }
-      .nav-right { order: 3; width: 100%; justify-content: center; }
-      .stats { gap: 30px; }
-      .cta-banner { padding: 40px 24px; }
-    }
-
-    /* MODALS */
     .modal-overlay {
       display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(0,0,0,0.5); backdrop-filter: blur(4px);
       z-index: 1000; align-items: center; justify-content: center;
     }
-    .modal-overlay.open { display: flex; }
+    .modal-overlay.open { display: flex; animation: fadeIn .2s ease; }
     .modal {
-      background: var(--card); border-radius: 20px; padding: 40px;
+      background: var(--card); border-radius: 20px; padding: 36px;
       width: 100%; max-width: 420px; position: relative;
-      box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.15);
     }
     .modal-close {
       position: absolute; top: 16px; right: 16px;
-      background: none; border: none; font-size: 1.5rem;
-      color: var(--muted); cursor: pointer; transition: color .2s;
+      width: 32px; height: 32px; border-radius: 50%;
+      background: rgba(0,0,0,0.05); border: none; font-size: 1.2rem;
+      color: var(--muted); cursor: pointer; transition: all .2s;
+      display: flex; align-items: center; justify-content: center;
     }
-    .modal-close:hover { color: var(--text); }
-    .modal h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 8px; }
-    .modal p.sub { color: var(--muted); font-size: .95rem; margin-bottom: 28px; }
+    .modal-close:hover { background: rgba(0,0,0,0.1); color: var(--text); }
+    .modal h2 { font-size: 1.6rem; font-weight: 800; margin-bottom: 4px; }
+    .modal p.sub { color: var(--muted); font-size: .95rem; margin-bottom: 0; }
     .modal .form-group { margin-bottom: 16px; }
     .modal label { display: block; font-size: .9rem; color: var(--muted); margin-bottom: 6px; font-weight: 500; }
     .modal input {
       width: 100%; padding: 12px 16px; border-radius: 12px;
-      border: 1px solid rgba(0,0,0,0.1); background: var(--bg);
+      border: 2px solid rgba(0,0,0,0.08); background: var(--bg);
       color: var(--text); font-size: 1rem; font-family: inherit;
-      transition: border-color .2s;
+      transition: border-color .2s, box-shadow .2s;
     }
-    .modal input:focus { outline: none; border-color: var(--accent); }
+    .modal input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(255,140,0,0.12); }
     .modal .btn-submit {
       width: 100%; padding: 13px; border-radius: 12px; border: none;
       background: var(--grad); color: #fff; font-weight: 600; font-size: 1rem;
@@ -278,6 +266,13 @@
       cursor: pointer; font-family: inherit; transition: all .2s;
     }
     .btn-logout:hover { background: rgba(0,0,0,0.1); color: var(--text); }
+
+    @media (max-width: 820px) {
+      .nav { flex-wrap: wrap; gap: 12px; justify-content: space-between; }
+      .nav-right { order: 3; width: 100%; justify-content: center; }
+      .stats { gap: 30px; }
+      .cta-banner { padding: 40px 24px; }
+    }
   </style>
 </head>
 <body>
@@ -286,30 +281,30 @@
     <a href="#" id="logoBtn" style="font-size:1.4rem;font-weight:800;color:var(--accent);text-decoration:none;letter-spacing:0.5px;">Orange</a>
     <div class="nav-tabs">
       <div class="nav-dropdown-wrap">
-        <button class="nav-tab" id="navFeaturesBtn">Возможности <span style="margin-left:6px;font-size:.9rem;">&#9662;</span></button>
+        <button class="nav-tab" id="navFeaturesBtn"><span data-i18n="nav_features">Возможности</span> <span style="margin-left:6px;font-size:.9rem;">&#9662;</span></button>
         <div class="nav-dropdown" id="navFeaturesDropdown">
-          <button data-sub="cold">Холодная рассылка</button>
-          <button data-sub="base">База компаний</button>
-          <button data-sub="warm">Прогрев почты</button>
-          <button data-sub="api">API</button>
+          <button data-sub="cold"><span data-i18n="sub_cold">Холодная рассылка</span></button>
+          <button data-sub="base"><span data-i18n="sub_base">База компаний</span></button>
+          <button data-sub="warm"><span data-i18n="sub_warm">Прогрев почты</span></button>
+          <button data-sub="api"><span data-i18n="sub_api">API</span></button>
         </div>
       </div>
       <div class="nav-dropdown-wrap">
-        <button class="nav-tab" id="navMaterialsBtn">Материалы <span style="margin-left:6px;font-size:.9rem;">&#9662;</span></button>
+        <button class="nav-tab" id="navMaterialsBtn"><span data-i18n="nav_materials">Материалы</span> <span style="margin-left:6px;font-size:.9rem;">&#9662;</span></button>
         <div class="nav-dropdown" id="navMaterialsDropdown">
-          <button data-sub="guides">Гайды</button>
-          <button data-sub="cases">Кейсы</button>
-          <button data-sub="updates">Обновления</button>
-          <button data-sub="blog">Блог</button>
-          <button data-sub="support">Поддержка</button>
+          <button data-sub="guides"><span data-i18n="sub_guides">Гайды</span></button>
+          <button data-sub="cases"><span data-i18n="sub_cases">Кейсы</span></button>
+          <button data-sub="updates"><span data-i18n="sub_updates">Обновления</span></button>
+          <button data-sub="blog"><span data-i18n="sub_blog">Блог</span></button>
+          <button data-sub="support"><span data-i18n="sub_support">Поддержка</span></button>
         </div>
       </div>
-      <a href="#turnkey" class="nav-tab">Под ключ</a>
-      <a href="#tariffs" class="nav-tab">Тарифы</a>
+      <a href="#turnkey" class="nav-tab"><span data-i18n="nav_turnkey">Под ключ</span></a>
+      <a href="#tariffs" class="nav-tab"><span data-i18n="nav_tariffs">Тарифы</span></a>
     </div>
     <div class="nav-right">
-      <a href="#contact" class="btn-login">Войти</a>
-      <a href="#contact" class="btn btn-primary" style="padding: 9px 20px; font-size: .95rem;">Начать бесплатно</a>
+      <a href="#contact" class="btn-login" id="btnLogin"><span data-i18n="btn_login">Войти</span></a>
+      <a href="#contact" class="btn btn-primary" id="btnStart" style="padding: 9px 20px; font-size: .95rem;"><span data-i18n="btn_start">Начать бесплатно</span></a>
       <div class="lang-select-wrap">
         <button class="lang-select" id="langBtn">RU</button>
         <div class="lang-dropdown" id="langDropdown">
@@ -328,148 +323,153 @@
   </div>
 
   <section class="hero" id="heroSection">
-    <div class="badge">Новые клиенты уже сегодня</div>
-    <h1>Холодные рассылки, которые <span class="grad">приносят заявки</span> вашему бизнесу</h1>
-    <p>Мы помогаем малым и средним бизнесам находить клиентов через эффективные email-рассылки: свежие базы компаний, прогрев репутации почты и автоматизация продаж.</p>
+    <div class="badge" data-i18n="hero_badge">Новые клиенты уже сегодня</div>
+    <h1><span data-i18n="hero_h1_1">Холодные рассылки, которые </span><span class="grad" data-i18n="hero_h1_grad">приносят заявки</span><span data-i18n="hero_h1_2"> вашему бизнесу</span></h1>
+    <p data-i18n="hero_p">Мы помогаем малым и средним бизнесам находить клиентов через эффективные email-рассылки: свежие базы компаний, прогрев репутации почты и автоматизация продаж.</p>
     <div class="cta">
-      <a href="#contact" class="btn btn-primary">Получить расчёт стоимости &rarr;</a>
-      <a href="#features" class="btn btn-outline">Как это работает</a>
+      <a href="#contact" class="btn btn-primary" data-i18n="hero_cta1">Получить расчёт стоимости &rarr;</a>
+      <a href="#features" class="btn btn-outline" data-i18n="hero_cta2">Как это работает</a>
     </div>
     <div class="stats">
-      <div class="stat"><div class="num">+340%</div><div class="label">к отклику на рассылку</div></div>
-      <div class="stat"><div class="num">12 000+</div><div class="label">компаний в базе</div></div>
-      <div class="stat"><div class="num">98%</div><div class="label">клиентов возвращаются</div></div>
+      <div class="stat"><div class="num">+340%</div><div class="label" data-i18n="stat1">к отклику на рассылку</div></div>
+      <div class="stat"><div class="num">12 000+</div><div class="label" data-i18n="stat2">компаний в базе</div></div>
+      <div class="stat"><div class="num">98%</div><div class="label" data-i18n="stat3">клиентов возвращаются</div></div>
     </div>
   </section>
 
   <section id="features" class="content-section">
-    <h2 class="section-title">Возможности сервиса</h2>
-    <p class="section-sub">Полный набор инструментов для успешных холодных рассылок</p>
+    <h2 class="section-title" data-i18n="feat_title">Возможности сервиса</h2>
+    <p class="section-sub" data-i18n="feat_sub">Полный набор инструментов для успешных холодных рассылок</p>
   </section>
 
   <section id="materials" class="content-section">
-    <h2 class="section-title">Материалы</h2>
-    <p class="section-sub">Гайды, кейсы и полезные ресурсы для эффективных рассылок</p>
+    <h2 class="section-title" data-i18n="mat_title">Материалы</h2>
+    <p class="section-sub" data-i18n="mat_sub">Гайды, кейсы и полезные ресурсы для эффективных рассылок</p>
   </section>
 
   <section id="pricing">
     <div class="cta-banner">
-      <h2>Готовы запустить свою первую холодную рассылку?</h2>
-      <p>Оставьте заявку — мы бесплатно проведём аудит вашей ниши, подберём базу и покажем первый результат уже на этой неделе.</p>
-      <a href="#contact" class="btn btn-primary">Попробовать бесплатно &rarr;</a>
+      <h2 data-i18n="cta_h2">Готовы запустить свою первую холодную рассылку?</h2>
+      <p data-i18n="cta_p">Оставьте заявку — мы бесплатно проведём аудит вашей ниши, подберём базу и покажем первый результат уже на этой неделе.</p>
+      <a href="#contact" class="btn btn-primary" data-i18n="cta_btn">Попробовать бесплатно &rarr;</a>
     </div>
   </section>
 
   <section id="turnkey" style="padding-top:40px;">
-    <h2 class="section-title">Решение под ключ</h2>
-    <p class="section-sub">Мы берём на себя всю работу: от настройки доменов до запуска рассылок с результатом</p>
+    <h2 class="section-title" data-i18n="tk_title">Решение под ключ</h2>
+    <p class="section-sub" data-i18n="tk_sub">Мы берём на себя всю работу: от настройки доменов до запуска рассылок с результатом</p>
     <div class="features" style="max-width:900px;">
       <div class="feature">
         <div class="icon">01</div>
-        <h3>Настройка инфраструктуры</h3>
-        <p>Регистрация доменов, настройка почтовых ящиков, прогрев репутации — всё готово к отправке.</p>
+        <h3 data-i18n="tk1_h">Настройка инфраструктуры</h3>
+        <p data-i18n="tk1_p">Регистрация доменов, настройка почтовых ящиков, прогрев репутации — всё готово к отправке.</p>
       </div>
       <div class="feature">
         <div class="icon">02</div>
-        <h3>Сбор базы</h3>
-        <p>Подбираем целевые компании под вашу нишу, верифицируем контакты, сегментируем аудиторию.</p>
+        <h3 data-i18n="tk2_h">Сбор базы</h3>
+        <p data-i18n="tk2_p">Подбираем целевые компании под вашу нишу, верифицируем контакты, сегментируем аудиторию.</p>
       </div>
       <div class="feature">
         <div class="icon">03</div>
-        <h3>Написание писем</h3>
-        <p>Создаём персонализированные тексты и цепочки писем, которые приносят отклики и заявки.</p>
+        <h3 data-i18n="tk3_h">Написание писем</h3>
+        <p data-i18n="tk3_p">Создаём персонализированные тексты и цепочки писем, которые приносят отклики и заявки.</p>
       </div>
       <div class="feature">
         <div class="icon">04</div>
-        <h3>Запуск и аналитика</h3>
-        <p>Запускаем кампании, отслеживаем результаты, оптимизируем на основе данных каждую неделю.</p>
+        <h3 data-i18n="tk4_h">Запуск и аналитика</h3>
+        <p data-i18n="tk4_p">Запускаем кампании, отслеживаем результаты, оптимизируем на основе данных каждую неделю.</p>
       </div>
     </div>
   </section>
 
   <section id="tariffs" style="padding-top:40px;">
-    <h2 class="section-title">Тарифы</h2>
-    <p class="section-sub">Выберите подходящий план для вашего бизнеса</p>
+    <h2 class="section-title" data-i18n="tar_title">Тарифы</h2>
+    <p class="section-sub" data-i18n="tar_sub">Выберите подходящий план для вашего бизнеса</p>
     <div class="features" style="max-width:1000px;">
       <div class="feature" style="text-align:center;">
-        <h3>Старт</h3>
-        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">15 000 ₽/мес</div>
-        <p>До 1 000 писем в месяц</p>
-        <p>1 почтовый ящик</p>
-        <p>Базовая аналитика</p>
-        <a href="#contact" class="btn btn-outline" style="margin-top:20px;">Выбрать</a>
+        <h3 data-i18n="tar1_h">Старт</h3>
+        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">15 000 &#8381;/мес</div>
+        <p data-i18n="tar1_p1">До 1 000 писем в месяц</p>
+        <p data-i18n="tar1_p2">1 почтовый ящик</p>
+        <p data-i18n="tar1_p3">Базовая аналитика</p>
+        <a href="#contact" class="btn btn-outline" style="margin-top:20px;" data-i18n="tar1_btn">Выбрать</a>
       </div>
       <div class="feature" style="text-align:center;border:2px solid var(--accent);box-shadow:0 12px 40px rgba(255,140,0,0.15);">
-        <div class="tag" style="margin:0 auto 12px;">Популярный</div>
-        <h3>Бизнес</h3>
-        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">35 000 ₽/мес</div>
-        <p>До 5 000 писем в месяц</p>
-        <p>3 почтовых ящика</p>
-        <p>Продвинутая аналитика</p>
-        <p>Персональный менеджер</p>
-        <a href="#contact" class="btn btn-primary" style="margin-top:20px;">Выбрать</a>
+        <div class="tag" style="margin:0 auto 12px;" data-i18n="tar_popular">Популярный</div>
+        <h3 data-i18n="tar2_h">Бизнес</h3>
+        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">35 000 &#8381;/мес</div>
+        <p data-i18n="tar2_p1">До 5 000 писем в месяц</p>
+        <p data-i18n="tar2_p2">3 почтовых ящика</p>
+        <p data-i18n="tar2_p3">Продвинутая аналитика</p>
+        <p data-i18n="tar2_p4">Персональный менеджер</p>
+        <a href="#contact" class="btn btn-primary" style="margin-top:20px;" data-i18n="tar2_btn">Выбрать</a>
       </div>
       <div class="feature" style="text-align:center;">
-        <h3>Корпоратив</h3>
-        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;">По запросу</div>
-        <p>Без ограничений</p>
-        <p>Неограниченные ящики</p>
-        <p>API и интеграции</p>
-        <p>Выделенный менеджер</p>
-        <a href="#contact" class="btn btn-outline" style="margin-top:20px;">Связаться</a>
+        <h3 data-i18n="tar3_h">Корпоратив</h3>
+        <div style="font-size:2.5rem;font-weight:800;margin:16px 0;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;" data-i18n="tar3_price">По запросу</div>
+        <p data-i18n="tar3_p1">Без ограничений</p>
+        <p data-i18n="tar3_p2">Неограниченные ящики</p>
+        <p data-i18n="tar3_p3">API и интеграции</p>
+        <p data-i18n="tar3_p4">Выделенный менеджер</p>
+        <a href="#contact" class="btn btn-outline" style="margin-top:20px;" data-i18n="tar3_btn">Связаться</a>
       </div>
     </div>
   </section>
 
   <section id="contact" style="padding-top:20px;">
-    <h2 class="section-title">Оставьте заявку</h2>
-    <p class="section-sub">Расскажите о вашем бизнесе — мы вернёмся с расчётом и планом рассылки</p>
+    <h2 class="section-title" data-i18n="form_title">Оставьте заявку</h2>
+    <p class="section-sub" data-i18n="form_sub">Расскажите о вашем бизнесе — мы вернёмся с расчётом и планом рассылки</p>
     <div style="max-width:560px;margin:0 auto;background:var(--card);border:1px solid rgba(0,0,0,0.06);border-radius:18px;padding:34px;box-shadow:0 8px 30px rgba(0,0,0,0.06);">
       <form onsubmit="event.preventDefault(); alert('Спасибо! Ваша заявка отправлена.');">
         <div style="margin-bottom:16px;">
-          <label style="font-size:.9rem;color:var(--muted);margin-bottom:6px;display:block;">Ваше имя</label>
-          <input type="text" required placeholder="Иван" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;">
+          <label style="font-size:.9rem;color:var(--muted);margin-bottom:6px;display:block;" data-i18n="form_name">Ваше имя</label>
+          <input type="text" required placeholder="" data-i18n-placeholder="form_name_ph" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;">
         </div>
         <div style="margin-bottom:16px;">
           <label style="font-size:.9rem;color:var(--muted);margin-bottom:6px;display:block;">Email</label>
-          <input type="email" required placeholder="you@company.ru" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;">
+          <input type="email" required placeholder="you@company.com" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;">
         </div>
         <div style="margin-bottom:20px;">
-          <label style="font-size:.9rem;color:var(--muted);margin-bottom:6px;display:block;">Опишите ваш бизнес</label>
-          <textarea rows="4" placeholder="Расскажите о вашей сфере, продукте и цели рассылки..." style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;resize:vertical;"></textarea>
+          <label style="font-size:.9rem;color:var(--muted);margin-bottom:6px;display:block;" data-i18n="form_desc">Опишите ваш бизнес</label>
+          <textarea rows="4" placeholder="" data-i18n-placeholder="form_desc_ph" style="width:100%;padding:13px 16px;border-radius:12px;border:1px solid rgba(0,0,0,0.1);background:var(--bg);color:var(--text);font-size:1rem;resize:vertical;"></textarea>
         </div>
-        <button type="submit" class="btn btn-primary" style="width:100%;">Отправить заявку</button>
+        <button type="submit" class="btn btn-primary" style="width:100%;" data-i18n="form_submit">Отправить заявку</button>
       </form>
     </div>
   </section>
 
   <footer>
     <div class="links">
-      <a href="#features">Возможности</a>
-      <a href="#materials">Материалы</a>
-      <a href="#pricing">Тарифы</a>
-      <a href="#contact">Контакты</a>
+      <a href="#features" data-i18n="nav_features">Возможности</a>
+      <a href="#materials" data-i18n="nav_materials">Материалы</a>
+      <a href="#tariffs" data-i18n="nav_tariffs">Тарифы</a>
+      <a href="#contact" data-i18n="footer_contacts">Контакты</a>
     </div>
-    <div>&copy; 2026. Все права защищены.</div>
+    <div>&copy; 2026 Orange. <span data-i18n="footer_rights">Все права защищены.</span></div>
   </footer>
 
   <!-- LOGIN MODAL -->
   <div class="modal-overlay" id="loginModal">
     <div class="modal">
       <button class="modal-close" id="loginClose">&times;</button>
-      <h2>Вход</h2>
-      <p class="sub">Войдите в свой аккаунт</p>
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="width:56px;height:56px;border-radius:16px;background:var(--grad);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <span style="font-size:1.5rem;color:#fff;">&#128274;</span>
+        </div>
+        <h2 style="margin-bottom:4px;" data-i18n="login_h2">Вход в аккаунт</h2>
+        <p class="sub" style="margin-bottom:0;" data-i18n="login_sub">Добро пожаловать обратно</p>
+      </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" id="loginEmail" placeholder="you@company.ru">
+        <input type="email" id="loginEmail" placeholder="you@company.com">
       </div>
       <div class="form-group">
-        <label>Пароль</label>
-        <input type="password" id="loginPass" placeholder="Введите пароль">
+        <label data-i18n="login_pass">Пароль</label>
+        <input type="password" id="loginPass" placeholder="" data-i18n-placeholder="login_pass_ph">
       </div>
       <div class="error-msg" id="loginError"></div>
-      <button class="btn-submit" id="loginSubmit">Войти</button>
-      <div class="switch-text">Нет аккаунта? <a id="toRegister">Зарегистрироваться</a></div>
+      <button class="btn-submit" id="loginSubmit" data-i18n="login_btn">Войти</button>
+      <div class="switch-text"><span data-i18n="login_no_acc">Нет аккаунта?</span> <a id="toRegister" data-i18n="login_register">Зарегистрироваться</a></div>
     </div>
   </div>
 
@@ -477,42 +477,135 @@
   <div class="modal-overlay" id="registerModal">
     <div class="modal">
       <button class="modal-close" id="registerClose">&times;</button>
-      <h2>Регистрация</h2>
-      <p class="sub">Создайте аккаунт и начните рассылки</p>
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="width:56px;height:56px;border-radius:16px;background:var(--grad);display:inline-flex;align-items:center;justify-content:center;margin-bottom:14px;">
+          <span style="font-size:1.5rem;color:#fff;">&#9998;</span>
+        </div>
+        <h2 style="margin-bottom:4px;" data-i18n="reg_h2">Создайте аккаунт</h2>
+        <p class="sub" style="margin-bottom:0;" data-i18n="reg_sub">Начните рассылки за 2 минуты</p>
+      </div>
       <div class="form-group">
-        <label>Имя</label>
-        <input type="text" id="regName" placeholder="Ваше имя">
+        <label data-i18n="reg_name">Имя</label>
+        <input type="text" id="regName" placeholder="" data-i18n-placeholder="reg_name_ph">
       </div>
       <div class="form-group">
         <label>Email</label>
-        <input type="email" id="regEmail" placeholder="you@company.ru">
+        <input type="email" id="regEmail" placeholder="you@company.com">
       </div>
       <div class="form-group">
-        <label>Компания</label>
-        <input type="text" id="regCompany" placeholder="Название компании">
+        <label data-i18n="reg_pass">Пароль</label>
+        <input type="password" id="regPass" placeholder="" data-i18n-placeholder="reg_pass_ph">
       </div>
       <div class="form-group">
-        <label>Пароль</label>
-        <input type="password" id="regPass" placeholder="Минимум 6 символов">
+        <label data-i18n="reg_pass2">Повторите пароль</label>
+        <input type="password" id="regPassConfirm" placeholder="" data-i18n-placeholder="reg_pass2_ph">
       </div>
       <div class="error-msg" id="registerError"></div>
-      <button class="btn-submit" id="registerSubmit">Создать аккаунт</button>
-      <div class="switch-text">Уже есть аккаунт? <a id="toLogin">Войти</a></div>
+      <button class="btn-submit" id="registerSubmit" data-i18n="reg_btn">Создать аккаунт</button>
+      <div class="switch-text"><span data-i18n="reg_has_acc">Уже есть аккаунт?</span> <a id="toLogin" data-i18n="reg_login">Войти</a></div>
     </div>
   </div>
 
   <script>
-    const pages = {
-      cold: { title: 'Холодная рассылка', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3>Персонализация писем</h3><p>Автоматическая вставка имени, компании и отрасли в каждое письмо для максимального отклика.</p><span class="tag">Входит в базовый тариф</span></div><div class="feature"><div class="icon">02</div><h3>Умная отправка</h3><p>Рассылка в оптимальные часы и с задержками, которые не вызывают блокировок.</p></div><div class="feature"><div class="icon">03</div><h3>Аналитика открытий</h3><p>Отслеживайте открытия, клики и ответы в реальном времени для каждого письма.</p></div><div class="feature"><div class="icon">04</div><h3>Автоворонки</h3><p>Серии follow-up писем с настраиваемыми сценариями для превращения лидов в клиентов.</p></div></div>' },
-      base: { title: 'База компаний', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3>Таргетный отбор</h3><p>Фильтрация компаний по отрасли, размеру, региону и выручке для точного попадания в ЦА.</p></div><div class="feature"><div class="icon">02</div><h3>Проверка контактов</h3><p>Верификация email-адресов перед отправкой — доставка в 99% случаев.</p></div><div class="feature"><div class="icon">03</div><h3>12 000+ компаний</h3><p>Постоянно обновляемая база с актуальными контактами ЛПР.</p><span class="tag">Обновляется еженедельно</span></div><div class="feature"><div class="icon">04</div><h3>Выгрузка данных</h3><p>Экспорт баз в Excel, CSV и Google Sheets в один клик.</p></div></div>' },
-      warm: { title: 'Прогрев почты', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3>Автопрогрев</h3><p>Автоматическое плавное увеличение объёма писем для защиты репутации ящика.</p><span class="tag">Спасает от спама</span></div><div class="feature"><div class="icon">02</div><h3>Поддержка доменов</h3><p>Настраиваем несколько доменов и почтовых ящиков для распределения нагрузки.</p></div><div class="feature"><div class="icon">03</div><h3>Управление DNS</h3><p>Автонастройка SPF, DKIM и DMARC записей для максимальной доставляемости.</p></div><div class="feature"><div class="icon">04</div><h3>Мониторинг репутации</h3><p>Контроль показателей отказов и жалоб с рекомендациями.</p></div></div>' },
-      api: { title: 'API', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3>REST API</h3><p>Полноценный REST API для интеграции с вашими CRM, сайтами и сервисами.</p></div><div class="feature"><div class="icon">02</div><h3>Вебхуки</h3><p>Мгновенные уведомления об открытиях и событиях в реальном времени.</p></div><div class="feature"><div class="icon">03</div><h3>Ключи доступа</h3><p>Безопасные API-ключи с ограничением прав и возможностью отзыва.</p></div><div class="feature"><div class="icon">04</div><h3>Документация</h3><p>Подробная документация с примерами кода на Python, JavaScript и PHP.</p></div></div>' },
-      guides: { title: 'Гайды', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3>Гайд: с чего начать холодную рассылку</h3><p>Пошаговое руководство для новичков: настройка домена, прогрев, первая кампания.</p><div class="meta"><span>10 мин</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3>Гайд: как писать письма, на которые отвечают</h3><p>Тексты, цепочки и follow-up, которые повышают отклик.</p><div class="meta"><span>8 мин</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3>Гайд: как собрать базу целевых компаний</h3><p>Методы поиска и проверки контактов под ваш продукт.</p><div class="meta"><span>12 мин</span><span class="read">Читать &rarr;</span></div></div></div></div>' },
-      cases: { title: 'Кейсы', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3>Кейс: IT-агентство +420% заявок</h3><p>Как за 3 месяца мы вывели рассылку на 40 встреч в месяц.</p><div class="meta"><span>Март 2026</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3>Кейс: оптовый поставщик мебели</h3><p>Холодные письма для B2B — календарь продаж за месяц.</p><div class="meta"><span>Июнь 2026</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3>Кейс: консалтинг и образование</h3><p>Сегментация базы и персонализация с ROI 11x.</p><div class="meta"><span>Август 2026</span><span class="read">Читать &rarr;</span></div></div></div></div>' },
-      updates: { title: 'Обновления', html: '<div class="cards"><div class="card"><div class="thumb">v2.4</div><div class="body"><h3>AI-генератор писем</h3><p>Создавайте персонализированные тексты нейросетью за секунды.</p><div class="meta"><span>v2.4</span><span class="read">Подробнее &rarr;</span></div></div></div><div class="card"><div class="thumb">v2.3</div><div class="body"><h3>Обновление аналитики</h3><p>Новые дашборды с тепловыми картами по каждой кампании.</p><div class="meta"><span>v2.3</span><span class="read">Подробнее &rarr;</span></div></div></div><div class="card"><div class="thumb">v2.2</div><div class="body"><h3>Интеграция с amoCRM и Bitrix24</h3><p>Автоматическая передача лидов в вашу CRM.</p><div class="meta"><span>v2.2</span><span class="read">Подробнее &rarr;</span></div></div></div></div>' },
-      blog: { title: 'Блог', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3>5 ошибок в холодных рассылках</h3><p>Разбираем частые ошибки и как их избежать.</p><div class="meta"><span>24 авг 2026</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3>Тренды email-маркетинга в 2026</h3><p>Что работает сейчас и куда движется рынок.</p><div class="meta"><span>12 авг 2026</span><span class="read">Читать &rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3>Идеальная серия из 5 писем</h3><p>Шаблон автоворонки для возврата неответивших.</p><div class="meta"><span>1 авг 2026</span><span class="read">Читать &rarr;</span></div></div></div></div>' },
-      support: { title: 'Поддержка', html: '<div class="cards"><div class="card"><div class="thumb">ONLINE</div><div class="body"><h3>Чат с поддержкой</h3><p>Онлайн-консультация, время ответа — 2 минуты.</p><div class="meta"><span>24/7</span><span class="read">Открыть чат &rarr;</span></div></div></div><div class="card"><div class="thumb">FAQ</div><div class="body"><h3>База знаний</h3><p>Статьи и инструкции по всем функциям.</p><div class="meta"><span>150+ статей</span><span class="read">Смотреть &rarr;</span></div></div></div><div class="card"><div class="thumb">1:1</div><div class="body"><h3>Персональный менеджер</h3><p>Личный специалист для настройки рассылок.</p><div class="meta"><span>Для Pro</span><span class="read">Подробнее &rarr;</span></div></div></div></div>' }
+    // ===== TRANSLATIONS =====
+    const T = {
+      ru: {
+        nav_features: "Возможности", nav_materials: "Материалы", nav_turnkey: "Под ключ", nav_tariffs: "Тарифы",
+        sub_cold: "Холодная рассылка", sub_base: "База компаний", sub_warm: "Прогрев почты", sub_api: "API",
+        sub_guides: "Гайды", sub_cases: "Кейсы", sub_updates: "Обновления", sub_blog: "Блог", sub_support: "Поддержка",
+        btn_login: "Войти", btn_start: "Начать бесплатно",
+        hero_badge: "Новые клиенты уже сегодня",
+        hero_h1_1: "Холодные рассылки, которые ", hero_h1_grad: "приносят заявки", hero_h1_2: " вашему бизнесу",
+        hero_p: "Мы помогаем малым и средним бизнесам находить клиентов через эффективные email-рассылки: свежие базы компаний, прогрев репутации почты и автоматизация продаж.",
+        hero_cta1: "Получить расчёт стоимости \u2192", hero_cta2: "Как это работает",
+        stat1: "к отклику на рассылку", stat2: "компаний в базе", stat3: "клиентов возвращаются",
+        feat_title: "Возможности сервиса", feat_sub: "Полный набор инструментов для успешных холодных рассылок",
+        mat_title: "Материалы", mat_sub: "Гайды, кейсы и полезные ресурсы для эффективных рассылок",
+        cta_h2: "Готовы запустить свою первую холодную рассылку?",
+        cta_p: "Оставьте заявку — мы бесплатно проведём аудит вашей ниши, подберём базу и покажем первый результат уже на этой неделе.",
+        cta_btn: "Попробовать бесплатно \u2192",
+        tk_title: "Решение под ключ", tk_sub: "Мы берём на себя всю работу: от настройки доменов до запуска рассылок с результатом",
+        tk1_h: "Настройка инфраструктуры", tk1_p: "Регистрация доменов, настройка почтовых ящиков, прогрев репутации — всё готово к отправке.",
+        tk2_h: "Сбор базы", tk2_p: "Подбираем целевые компании под вашу нишу, верифицируем контакты, сегментируем аудиторию.",
+        tk3_h: "Написание писем", tk3_p: "Создаём персонализированные тексты и цепочки писем, которые приносят отклики и заявки.",
+        tk4_h: "Запуск и аналитика", tk4_p: "Запускаем кампании, отслеживаем результаты, оптимизируем на основе данных каждую неделю.",
+        tar_title: "Тарифы", tar_sub: "Выберите подходящий план для вашего бизнеса",
+        tar1_h: "Старт", tar1_p1: "До 1 000 писем в месяц", tar1_p2: "1 почтовый ящик", tar1_p3: "Базовая аналитика", tar1_btn: "Выбрать",
+        tar_popular: "Популярный",
+        tar2_h: "Бизнес", tar2_p1: "До 5 000 писем в месяц", tar2_p2: "3 почтовых ящика", tar2_p3: "Продвинутая аналитика", tar2_p4: "Персональный менеджер", tar2_btn: "Выбрать",
+        tar3_h: "Корпоратив", tar3_price: "По запросу", tar3_p1: "Без ограничений", tar3_p2: "Неограниченные ящики", tar3_p3: "API и интеграции", tar3_p4: "Выделенный менеджер", tar3_btn: "Связаться",
+        form_title: "Оставьте заявку", form_sub: "Расскажите о вашем бизнесе — мы вернёмся с расчётом и планом рассылки",
+        form_name: "Ваше имя", form_name_ph: "Иван", form_desc: "Опишите ваш бизнес", form_desc_ph: "Расскажите о вашей сфере, продукте и цели рассылки...", form_submit: "Отправить заявку",
+        footer_contacts: "Контакты", footer_rights: "Все права защищены.",
+        login_h2: "Вход в аккаунт", login_sub: "Добро пожаловать обратно", login_pass: "Пароль", login_pass_ph: "Введите пароль",
+        login_btn: "Войти", login_no_acc: "Нет аккаунта?", login_register: "Зарегистрироваться",
+        reg_h2: "Создайте аккаунт", reg_sub: "Начните рассылки за 2 минуты", reg_name: "Имя", reg_name_ph: "Как к вам обращаться",
+        reg_pass: "Пароль", reg_pass_ph: "Минимум 6 символов", reg_pass2: "Повторите пароль", reg_pass2_ph: "Введите пароль ещё раз",
+        reg_btn: "Создать аккаунт", reg_has_acc: "Уже есть аккаунт?", reg_login: "Войти",
+        back: "\u2190 Назад"
+      },
+      en: {
+        nav_features: "Features", nav_materials: "Materials", nav_turnkey: "Turnkey", nav_tariffs: "Pricing",
+        sub_cold: "Cold Outreach", sub_base: "Company Database", sub_warm: "Email Warmup", sub_api: "API",
+        sub_guides: "Guides", sub_cases: "Case Studies", sub_updates: "Updates", sub_blog: "Blog", sub_support: "Support",
+        btn_login: "Log In", btn_start: "Get Started Free",
+        hero_badge: "New clients today",
+        hero_h1_1: "Cold emails that ", hero_h1_grad: "bring leads", hero_h1_2: " to your business",
+        hero_p: "We help small and medium businesses find clients through effective email outreach: fresh company databases, email reputation warmup, and sales automation.",
+        hero_cta1: "Get a Quote \u2192", hero_cta2: "How It Works",
+        stat1: "response rate boost", stat2: "companies in database", stat3: "client retention",
+        feat_title: "Service Features", feat_sub: "Complete toolkit for successful cold outreach",
+        mat_title: "Resources", mat_sub: "Guides, case studies, and tools for effective outreach",
+        cta_h2: "Ready to launch your first cold campaign?",
+        cta_p: "Leave a request — we'll audit your niche, build a database, and show results this week for free.",
+        cta_btn: "Try Free \u2192",
+        tk_title: "Turnkey Solution", tk_sub: "We handle everything: from domain setup to launching campaigns with results",
+        tk1_h: "Infrastructure Setup", tk1_p: "Domain registration, mailbox setup, reputation warmup — ready to send.",
+        tk2_h: "Database Building", tk2_p: "We find target companies for your niche, verify contacts, and segment your audience.",
+        tk3_h: "Email Copywriting", tk3_p: "We create personalized email copy and sequences that drive responses and leads.",
+        tk4_h: "Launch & Analytics", tk4_p: "We launch campaigns, track results, and optimize based on data every week.",
+        tar_title: "Pricing", tar_sub: "Choose the right plan for your business",
+        tar1_h: "Starter", tar1_p1: "Up to 1,000 emails/mo", tar1_p2: "1 mailbox", tar1_p3: "Basic analytics", tar1_btn: "Choose",
+        tar_popular: "Popular",
+        tar2_h: "Business", tar2_p1: "Up to 5,000 emails/mo", tar2_p2: "3 mailboxes", tar2_p3: "Advanced analytics", tar2_p4: "Personal manager", tar2_btn: "Choose",
+        tar3_h: "Enterprise", tar3_price: "Custom", tar3_p1: "Unlimited", tar3_p2: "Unlimited mailboxes", tar3_p3: "API & Integrations", tar3_p4: "Dedicated manager", tar3_btn: "Contact Us",
+        form_title: "Get in Touch", form_sub: "Tell us about your business — we'll come back with a plan and pricing",
+        form_name: "Your Name", form_name_ph: "John", form_desc: "Describe Your Business", form_desc_ph: "Tell us about your niche, product, and outreach goals...", form_submit: "Send Request",
+        footer_contacts: "Contacts", footer_rights: "All rights reserved.",
+        login_h2: "Welcome Back", login_sub: "Sign in to your account", login_pass: "Password", login_pass_ph: "Enter your password",
+        login_btn: "Log In", login_no_acc: "Don't have an account?", login_register: "Sign Up",
+        reg_h2: "Create Account", reg_sub: "Start outreach in 2 minutes", reg_name: "Name", reg_name_ph: "Your name",
+        reg_pass: "Password", reg_pass_ph: "Minimum 6 characters", reg_pass2: "Confirm Password", reg_pass2_ph: "Re-enter password",
+        reg_btn: "Create Account", reg_has_acc: "Already have an account?", reg_login: "Log In",
+        back: "\u2190 Back"
+      }
     };
+
+    let currentLang = localStorage.getItem('orange_lang') || 'ru';
+
+    function applyLang(lang) {
+      currentLang = lang;
+      localStorage.setItem('orange_lang', lang);
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (T[lang] && T[lang][key]) el.textContent = T[lang][key];
+      });
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (T[lang] && T[lang][key]) el.placeholder = T[lang][key];
+      });
+      document.getElementById('langBtn').textContent = lang.toUpperCase();
+    }
+
+    // ===== AUTH =====
+    const DB_KEY = 'orange_users';
+    const SESSION_KEY = 'orange_session';
+
+    function getUsers() { return JSON.parse(localStorage.getItem(DB_KEY) || '[]'); }
+    function saveUsers(users) { localStorage.setItem(DB_KEY, JSON.stringify(users)); }
+    function getSession() { return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null'); }
+    function setSession(user) { sessionStorage.setItem(SESSION_KEY, JSON.stringify(user)); }
+    function clearSession() { sessionStorage.removeItem(SESSION_KEY); }
 
     const heroSection = document.getElementById('heroSection');
     const featuresSection = document.getElementById('features');
@@ -528,7 +621,7 @@
       heroSection.classList.add('hidden');
       featuresSection.classList.add('hidden');
       materialsSection.classList.add('hidden');
-      pageTitle.textContent = page.title;
+      pageTitle.textContent = T[currentLang][page.titleKey] || page.titleFallback;
       pageContent.innerHTML = page.html;
       pageSection.classList.remove('hidden');
       window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -542,146 +635,65 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
-    logoBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      showHome();
-    });
+    logoBtn.addEventListener('click', (e) => { e.preventDefault(); showHome(); });
 
     const navDropdowns = [
       { btn: document.getElementById('navFeaturesBtn'), dropdown: document.getElementById('navFeaturesDropdown') },
       { btn: document.getElementById('navMaterialsBtn'), dropdown: document.getElementById('navMaterialsDropdown') }
     ];
-
-    navDropdowns.forEach(({ btn, dropdown }) => {
+    navDropdowns.forEach(({ dropdown }) => {
       dropdown.querySelectorAll('button').forEach(b => {
-        b.addEventListener('click', () => {
-          showPage(b.dataset.sub);
-        });
+        b.addEventListener('click', () => showPage(b.dataset.sub));
       });
     });
 
+    // Language
     const langBtn = document.getElementById('langBtn');
     const langDropdown = document.getElementById('langDropdown');
-    const langLabel = document.getElementById('langLabel');
-
-    langBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      langDropdown.classList.toggle('open');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (!e.target.closest('.lang-select-wrap')) langDropdown.classList.remove('open');
-    });
-
+    langBtn.addEventListener('click', (e) => { e.stopPropagation(); langDropdown.classList.toggle('open'); });
+    document.addEventListener('click', (e) => { if (!e.target.closest('.lang-select-wrap')) langDropdown.classList.remove('open'); });
     langDropdown.querySelectorAll('button').forEach(b => {
       b.addEventListener('click', () => {
-        langLabel.textContent = b.dataset.lang.toUpperCase();
+        applyLang(b.dataset.lang);
         langDropdown.classList.remove('open');
+        // Re-render current page if open
+        if (!pageSection.classList.contains('hidden')) {
+          const activePage = document.querySelector('.page-content')?.dataset?.currentSub;
+          if (activePage) showPage(activePage);
+        }
       });
     });
 
-    // ===== AUTH =====
-    const DB_KEY = 'orange_users';
-    const SESSION_KEY = 'orange_session';
-
-    function getUsers() {
-      return JSON.parse(localStorage.getItem(DB_KEY) || '[]');
-    }
-
-    function saveUsers(users) {
-      localStorage.setItem(DB_KEY, JSON.stringify(users));
-    }
-
-    function getSession() {
-      return JSON.parse(sessionStorage.getItem(SESSION_KEY) || 'null');
-    }
-
-    function setSession(user) {
-      sessionStorage.setItem(SESSION_KEY, JSON.stringify(user));
-    }
-
-    function clearSession() {
-      sessionStorage.removeItem(SESSION_KEY);
-    }
-
+    // Modals
     const loginModal = document.getElementById('loginModal');
     const registerModal = document.getElementById('registerModal');
-    const loginClose = document.getElementById('loginClose');
-    const registerClose = document.getElementById('registerClose');
-    const toRegister = document.getElementById('toRegister');
-    const toLogin = document.getElementById('toLogin');
-    const navRight = document.querySelector('.nav-right');
+    document.getElementById('loginClose').addEventListener('click', () => { loginModal.classList.remove('open'); });
+    document.getElementById('registerClose').addEventListener('click', () => { registerModal.classList.remove('open'); });
+    document.getElementById('toRegister').addEventListener('click', () => { loginModal.classList.remove('open'); registerModal.classList.add('open'); document.getElementById('registerError').classList.remove('show'); });
+    document.getElementById('toLogin').addEventListener('click', () => { registerModal.classList.remove('open'); loginModal.classList.add('open'); document.getElementById('loginError').classList.remove('show'); });
+    loginModal.addEventListener('click', (e) => { if (e.target === loginModal) loginModal.classList.remove('open'); });
+    registerModal.addEventListener('click', (e) => { if (e.target === registerModal) registerModal.classList.remove('open'); });
 
-    function openLogin() {
-      registerModal.classList.remove('open');
-      loginModal.classList.add('open');
-      document.getElementById('loginError').classList.remove('show');
-    }
-
-    function openRegister() {
-      loginModal.classList.remove('open');
-      registerModal.classList.add('open');
-      document.getElementById('registerError').classList.remove('show');
-    }
-
-    function closeModals() {
-      loginModal.classList.remove('open');
-      registerModal.classList.remove('open');
-    }
-
-    document.querySelector('.btn-login').addEventListener('click', (e) => {
-      e.preventDefault();
-      openLogin();
-    });
-
-    document.querySelector('.btn-primary[style]').addEventListener('click', (e) => {
-      e.preventDefault();
-      openRegister();
-    });
-
-    loginClose.addEventListener('click', closeModals);
-    registerClose.addEventListener('click', closeModals);
-    toRegister.addEventListener('click', openRegister);
-    toLogin.addEventListener('click', openLogin);
-
-    loginModal.addEventListener('click', (e) => {
-      if (e.target === loginModal) closeModals();
-    });
-    registerModal.addEventListener('click', (e) => {
-      if (e.target === registerModal) closeModals();
-    });
+    document.getElementById('btnLogin').addEventListener('click', (e) => { e.preventDefault(); loginModal.classList.add('open'); });
+    document.getElementById('btnStart').addEventListener('click', (e) => { e.preventDefault(); registerModal.classList.add('open'); });
 
     // Register
     document.getElementById('registerSubmit').addEventListener('click', () => {
       const name = document.getElementById('regName').value.trim();
       const email = document.getElementById('regEmail').value.trim();
-      const company = document.getElementById('regCompany').value.trim();
       const pass = document.getElementById('regPass').value;
+      const passConfirm = document.getElementById('regPassConfirm').value;
       const err = document.getElementById('registerError');
-
-      if (!name || !email || !pass) {
-        err.textContent = 'Заполните все обязательные поля';
-        err.classList.add('show');
-        return;
-      }
-      if (pass.length < 6) {
-        err.textContent = 'Пароль должен быть не менее 6 символов';
-        err.classList.add('show');
-        return;
-      }
-
+      const L = T[currentLang];
+      if (!name || !email || !pass) { err.textContent = L.reg_h2 ? 'Fill in all fields' : 'Заполните все обязательные поля'; err.classList.add('show'); return; }
+      if (pass.length < 6) { err.textContent = 'Min 6 characters'; err.classList.add('show'); return; }
+      if (pass !== passConfirm) { err.textContent = currentLang === 'en' ? 'Passwords do not match' : 'Пароли не совпадают'; err.classList.add('show'); return; }
       const users = getUsers();
-      if (users.find(u => u.email === email)) {
-        err.textContent = 'Пользователь с таким email уже существует';
-        err.classList.add('show');
-        return;
-      }
-
-      const user = { name, email, company, pass, createdAt: new Date().toISOString() };
-      users.push(user);
+      if (users.find(u => u.email === email)) { err.textContent = currentLang === 'en' ? 'Email already registered' : 'Пользователь уже существует'; err.classList.add('show'); return; }
+      users.push({ name, email, pass, createdAt: new Date().toISOString() });
       saveUsers(users);
-      setSession({ name, email, company });
-      closeModals();
+      setSession({ name, email });
+      registerModal.classList.remove('open');
       updateAuthUI();
     });
 
@@ -690,42 +702,41 @@
       const email = document.getElementById('loginEmail').value.trim();
       const pass = document.getElementById('loginPass').value;
       const err = document.getElementById('loginError');
-
-      if (!email || !pass) {
-        err.textContent = 'Заполните все поля';
-        err.classList.add('show');
-        return;
-      }
-
+      if (!email || !pass) { err.textContent = currentLang === 'en' ? 'Fill in all fields' : 'Заполните все поля'; err.classList.add('show'); return; }
       const users = getUsers();
       const user = users.find(u => u.email === email && u.pass === pass);
-      if (!user) {
-        err.textContent = 'Неверный email или пароль';
-        err.classList.add('show');
-        return;
-      }
-
-      setSession({ name: user.name, email: user.email, company: user.company });
-      closeModals();
+      if (!user) { err.textContent = currentLang === 'en' ? 'Wrong email or password' : 'Неверный email или пароль'; err.classList.add('show'); return; }
+      setSession({ name: user.name, email: user.email });
+      loginModal.classList.remove('open');
       updateAuthUI();
     });
 
     function updateAuthUI() {
       const session = getSession();
-      const loginBtn = document.querySelector('.btn-login');
-      const startBtn = document.querySelector('.btn-primary[style]');
-
+      const loginBtn = document.getElementById('btnLogin');
+      const startBtn = document.getElementById('btnStart');
       if (session) {
         loginBtn.outerHTML = `<div class="user-info"><div class="avatar">${session.name.charAt(0).toUpperCase()}</div><span>${session.name}</span></div>`;
-        startBtn.outerHTML = `<button class="btn-logout" id="logoutBtn">Выйти</button>`;
-        document.getElementById('logoutBtn').addEventListener('click', () => {
-          clearSession();
-          location.reload();
-        });
+        startBtn.outerHTML = `<button class="btn-logout" id="logoutBtn">${currentLang === 'en' ? 'Log Out' : 'Выйти'}</button>`;
+        document.getElementById('logoutBtn').addEventListener('click', () => { clearSession(); location.reload(); });
       }
     }
 
+    applyLang(currentLang);
     updateAuthUI();
+
+    // Pages data
+    const pages = {
+      cold: { titleKey: 'sub_cold', titleFallback: 'Холодная рассылка', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3 data-i18n="cold_1h">Персонализация писем</h3><p data-i18n="cold_1p">Автоматическая вставка имени, компании и отрасли в каждое письмо.</p><span class="tag" data-i18n="cold_1tag">Входит в базовый тариф</span></div><div class="feature"><div class="icon">02</div><h3 data-i18n="cold_2h">Умная отправка</h3><p data-i18n="cold_2p">Рассылка в оптимальные часы и с задержками, которые не вызывают блокировок.</p></div><div class="feature"><div class="icon">03</div><h3 data-i18n="cold_3h">Аналитика открытий</h3><p data-i18n="cold_3p">Отслеживайте открытия, клики и ответы в реальном времени.</p></div><div class="feature"><div class="icon">04</div><h3 data-i18n="cold_4h">Автоворонки</h3><p data-i18n="cold_4p">Серии follow-up писем для превращения лидов в клиентов.</p></div></div>' },
+      base: { titleKey: 'sub_base', titleFallback: 'База компаний', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3 data-i18n="base_1h">Таргетный отбор</h3><p data-i18n="base_1p">Фильтрация по отрасли, размеру, региону и выручке.</p></div><div class="feature"><div class="icon">02</div><h3 data-i18n="base_2h">Проверка контактов</h3><p data-i18n="base_2p">Верификация email перед отправкой — доставка в 99%.</p></div><div class="feature"><div class="icon">03</div><h3 data-i18n="base_3h">12 000+ компаний</h3><p data-i18n="base_3p">Актуальные контакты ЛПР, обновление еженедельно.</p></div><div class="feature"><div class="icon">04</div><h3 data-i18n="base_4h">Выгрузка данных</h3><p data-i18n="base_4p">Экспорт в Excel, CSV и Google Sheets в один клик.</p></div></div>' },
+      warm: { titleKey: 'sub_warm', titleFallback: 'Прогрев почты', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3 data-i18n="warm_1h">Автопрогрев</h3><p data-i18n="warm_1p">Плавное увеличение объёма писем для защиты репутации.</p></div><div class="feature"><div class="icon">02</div><h3 data-i18n="warm_2h">Поддержка доменов</h3><p data-i18n="warm_2p">Несколько доменов и ящиков для распределения нагрузки.</p></div><div class="feature"><div class="icon">03</div><h3 data-i18n="warm_3h">Управление DNS</h3><p data-i18n="warm_3p">Автонастройка SPF, DKIM и DMARC записей.</p></div><div class="feature"><div class="icon">04</div><h3 data-i18n="warm_4h">Мониторинг</h3><p data-i18n="warm_4p">Контроль показателей отказов и жалоб.</p></div></div>' },
+      api: { titleKey: 'sub_api', titleFallback: 'API', html: '<div class="features"><div class="feature"><div class="icon">01</div><h3>REST API</h3><p data-i18n="api_1p">Полноценный API для интеграции с CRM и сервисами.</p></div><div class="feature"><div class="icon">02</div><h3 data-i18n="api_2h">Вебхуки</h3><p data-i18n="api_2p">Уведомления об открытиях и событиях в реальном времени.</p></div><div class="feature"><div class="icon">03</div><h3 data-i18n="api_3h">Ключи доступа</h3><p data-i18n="api_3p">Безопасные ключи с ограничением прав.</p></div><div class="feature"><div class="icon">04</div><h3 data-i18n="api_4h">Документация</h3><p data-i18n="api_4p">Примеры кода на Python, JavaScript и PHP.</p></div></div>' },
+      guides: { titleKey: 'sub_guides', titleFallback: 'Гайды', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3 data-i18n="g_1h">С чего начать холодную рассылку</h3><p data-i18n="g_1p">Пошаговое руководство для новичков.</p><div class="meta"><span>10 min</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3 data-i18n="g_2h">Как писать письма, на которые отвечают</h3><p data-i18n="g_2p">Тексты и цепочки, повышающие отклик.</p><div class="meta"><span>8 min</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3 data-i18n="g_3h">Как собрать базу целевых компаний</h3><p data-i18n="g_3p">Методы поиска и проверки контактов.</p><div class="meta"><span>12 min</span><span class="read">&rarr;</span></div></div></div></div>' },
+      cases: { titleKey: 'sub_cases', titleFallback: 'Кейсы', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3 data-i18n="cs_1h">IT-агентство +420% заявок</h3><p data-i18n="cs_1p">40 встреч в месяц за 3 месяца.</p><div class="meta"><span>Mar 2026</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3 data-i18n="cs_2h">Оптовый поставщик мебели</h3><p data-i18n="cs_2p">Календарь продаж за месяц.</p><div class="meta"><span>Jun 2026</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3 data-i18n="cs_3h">Консалтинг и образование</h3><p data-i18n="cs_3p">ROI 11x на персонализации.</p><div class="meta"><span>Aug 2026</span><span class="read">&rarr;</span></div></div></div></div>' },
+      updates: { titleKey: 'sub_updates', titleFallback: 'Обновления', html: '<div class="cards"><div class="card"><div class="thumb">v2.4</div><div class="body"><h3 data-i18n="up_1h">AI-генератор писем</h3><p data-i18n="up_1p">Персонализированные тексты нейросетью.</p><div class="meta"><span>v2.4</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">v2.3</div><div class="body"><h3 data-i18n="up_2h">Обновление аналитики</h3><p data-i18n="up_2p">Тепловые карты по каждой кампании.</p><div class="meta"><span>v2.3</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">v2.2</div><div class="body"><h3 data-i18n="up_3h">Интеграция с amoCRM</h3><p data-i18n="up_3p">Автоматическая передача лидов.</p><div class="meta"><span>v2.2</span><span class="read">&rarr;</span></div></div></div></div>' },
+      blog: { titleKey: 'sub_blog', titleFallback: 'Блог', html: '<div class="cards"><div class="card"><div class="thumb">01</div><div class="body"><h3 data-i18n="bl_1h">5 ошибок в холодных рассылках</h3><p data-i18n="bl_1p">Частые ошибки и как их избежать.</p><div class="meta"><span>24 Aug 2026</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">02</div><div class="body"><h3 data-i18n="bl_2h">Тренды email-маркетинга в 2026</h3><p data-i18n="bl_2p">Что работает сейчас.</p><div class="meta"><span>12 Aug 2026</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">03</div><div class="body"><h3 data-i18n="bl_3h">Идеальная серия из 5 писем</h3><p data-i18n="bl_3p">Шаблон автоворонки.</p><div class="meta"><span>1 Aug 2026</span><span class="read">&rarr;</span></div></div></div></div>' },
+      support: { titleKey: 'sub_support', titleFallback: 'Поддержка', html: '<div class="cards"><div class="card"><div class="thumb">ONLINE</div><div class="body"><h3 data-i18n="sp_1h">Чат с поддержкой</h3><p data-i18n="sp_1p">Ответ за 2 минуты, 24/7.</p><div class="meta"><span>24/7</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">FAQ</div><div class="body"><h3 data-i18n="sp_2h">База знаний</h3><p data-i18n="sp_2p">150+ статей и инструкций.</p><div class="meta"><span>150+</span><span class="read">&rarr;</span></div></div></div><div class="card"><div class="thumb">1:1</div><div class="body"><h3 data-i18n="sp_3h">Персональный менеджер</h3><p data-i18n="sp_3p">Для тарифов Pro.</p><div class="meta"><span>Pro</span><span class="read">&rarr;</span></div></div></div></div>' }
+    };
   </script>
 </body>
 </html>
