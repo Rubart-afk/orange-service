@@ -1,0 +1,23 @@
+{
+  "description": "Структура базы данных проекта Orange",
+  "collections": {
+    "users": {
+      "fields": ["id", "name", "email", "company", "password_hash", "created_at", "tariff"],
+      "description": "Зарегистрированные пользователи"
+    },
+    "campaigns": {
+      "fields": ["id", "user_id", "name", "status", "recipient_count", "open_rate", "reply_rate", "created_at"],
+      "description": "Рассылки пользователей"
+    },
+    "leads": {
+      "fields": ["id", "campaign_id", "email", "company", "status", "sent_at", "opened_at", "replied_at"],
+      "description": "Лиды и контакты"
+    },
+    "companies": {
+      "fields": ["id", "name", "legal_name", "region", "city", "industry", "description", "address", "phone", "email", "website", "inn", "status", "coverage"],
+      "description": "База компаний для холодных рассылок",
+      "regions": ["Москва", "Московская область", "Санкт-Петербург", "Свердловская область", "Воронежская область", "Челябинская область", "Хабаровский край", "Пермский край", "Ростовская область"],
+      "industries": ["Образование", "Промышленность и производство", "Досуг и развлечения", "Строительство", "Услуги", "Торговля", "Оборудование", "Компьютеры и оргтехника", "Бизнес, финансы и страхование", "Логистика", "Реклама", "Продукты питания", "Здоровье и медицина", "Авто-мото", "Сельское хозяйство"]
+    }
+  }
+}
