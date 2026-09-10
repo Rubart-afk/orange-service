@@ -1,17 +1,24 @@
 {
   "name": "default-project",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Отклик — база знаний и рабочее пространство для B2B-коммуникаций",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "check": "node --check server.js && node --check store.js && node --check app.js && node --check public/app.js",
+    "test": "node --test",
+    "generate:secrets": "node scripts/generate-secrets.js",
+    "backup": "node scripts/backup.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=22.5"
+  },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "google-auth-library": "^11.0.2"
   }
 }

@@ -1,2 +1,10 @@
-﻿node_modules/
+node_modules/
+.env
+data/
+backups/
 database/users.json
+database/email-accounts.json
+database/requests.json
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
