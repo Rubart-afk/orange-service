@@ -5,6 +5,10 @@ backups/
 database/users.json
 database/email-accounts.json
 database/requests.json
+database/companies.json
+database/companies-spravmer.json
+database/spravmer-html/
+database/gmail-private.json
 *.sqlite
 *.sqlite-shm
 *.sqlite-wal
