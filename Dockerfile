@@ -6,7 +6,7 @@ ENV NODE_ENV=production HOST=0.0.0.0 PORT=3000 OTKLIK_DB_PATH=/app/data/otklik.d
 COPY package.json package-lock.json ./
 RUN npm ci --omit=dev
 COPY public ./public
-COPY server.js store.js ./
+COPY *.js ./
 COPY scripts/backup.js ./scripts/backup.js
 
 RUN mkdir -p /app/data /app/backups && chown -R node:node /app
