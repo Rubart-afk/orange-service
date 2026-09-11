@@ -24,7 +24,8 @@ function installSecurity(app, {production = process.env.NODE_ENV === 'production
     if (process.env.EMAIL_OAUTH_DEMO === '1') throw new Error('Demo OAuth is forbidden in production');
     origin = url.origin;
   }
-  app.set('trust proxy', trustLoopback ? 'loopback' : false);
+  // Render terminates HTTPS at its managed reverse proxy.
+  app.set('trust proxy', process.env.RENDER === 'true' && process.env.TRUST_PROXY === '1' ? 1 : (trustLoopback ? 'loopback' : false));
   app.use((req,res,next) => {
     res.set({'X-Content-Type-Options':'nosniff','X-Frame-Options':'DENY','Referrer-Policy':'no-referrer','Permissions-Policy':'camera=(), microphone=(), geolocation=()',
       'Content-Security-Policy':"default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'none'; frame-ancestors 'none'; form-action 'self'"});
