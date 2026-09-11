@@ -166,7 +166,7 @@ $('.switch').addEventListener('click',()=>openAuth(authMode==='login'?'register'
 $('#add-email .close').addEventListener('click',()=>$('#add-email').close());
 $('.mobile-toggle').addEventListener('click',()=>{const open=$('header').classList.toggle('menu-open');$('.mobile-toggle').setAttribute('aria-expanded',String(open));});
 $('.skip').addEventListener('click',e=>{e.preventDefault();main.focus();});
-window.addEventListener('hashchange',route);window.addEventListener('DOMContentLoaded',route);api('/api/me').then(data=>{user=data.user;updateAccount();if(['','#home','#profile','#email-accounts','#mail-health','#sequences','#companies'].includes(location.hash))route();}).catch(()=>{});
+window.addEventListener('hashchange',route);window.addEventListener('DOMContentLoaded',route);api('/api/me').then(data=>{user=data.user;updateAccount();if(['','#home','#profile','#email-accounts','#mail-health','#sequences','#companies'].includes(location.hash))route();}).catch(()=>{}).finally(()=>{const mode=new URLSearchParams(location.search).get('auth');if(mode==='login'||mode==='register'){const clean=new URL(location.href);clean.searchParams.delete('auth');history.replaceState(null,'',clean.pathname+clean.search+clean.hash);openAuth(mode);}});
 document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible'&&user)api('/api/me').catch(()=>{});});
 
 // Close navigation with Escape and expose the current destination.
