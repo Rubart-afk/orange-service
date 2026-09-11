@@ -24,6 +24,7 @@ function createApp({ dbDir = process.env.OTKLIK_DATA_DIR || path.join(__dirname,
   const readEmailAccounts = () => JSON.parse(fs.readFileSync(emailAccountsFile, 'utf8'));
   const writeEmailAccounts = data => { fs.writeFileSync(emailAccountsFile + '.tmp', JSON.stringify(data, null, 2)); fs.renameSync(emailAccountsFile + '.tmp', emailAccountsFile); };
   app.disable('x-powered-by');
+  app.get(['/healthz', '/readyz'], (req, res) => res.json({ok:true}));
   require('./security').installSecurity(app);
   require('./unsubscribe').unsubscribe(dbDir).install(app);
   app.use('/api/sequences',express.json({limit:'128kb'}));
@@ -148,7 +149,7 @@ function createApp({ dbDir = process.env.OTKLIK_DATA_DIR || path.join(__dirname,
 if (require.main === module) {
   const app=createApp();
   app.locals.backups=require('./backup').startBackups(process.env.OTKLIK_DATA_DIR||path.join(__dirname,'database'));
-  const server=app.listen(process.env.PORT || 3000, '127.0.0.1', () => {app.locals.sequences.start();console.log(`Отклик: http://localhost:${process.env.PORT || 3000}`);});
+  const server=app.listen(process.env.PORT || 3000, process.env.HOST || '127.0.0.1', () => {app.locals.sequences.start();console.log(`Отклик: http://localhost:${process.env.PORT || 3000}`);});
   server.requestTimeout=30000;
   server.headersTimeout=15000;
   server.keepAliveTimeout=5000;
